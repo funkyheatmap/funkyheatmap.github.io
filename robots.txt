@@ -1,1 +1,1 @@
-Sitemap: https://funkyheatmap.github.io/sitemap.xml
+Sitemap: https://github.com/funkyheatmap/funkyheatmap.github.io/sitemap.xml
