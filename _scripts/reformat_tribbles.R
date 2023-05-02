@@ -1,5 +1,7 @@
 # copied from https://raw.githubusercontent.com/dynverse/dynbenchmark/master/package/R/reformat_tribbles.R
-library(tidyverse)
+library(languageserver)
+library(rlang)
+library(readr)
 
 #' Align tribbles in a file
 #'
