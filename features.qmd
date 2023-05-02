@@ -1,0 +1,118 @@
+---
+title: "Features"
+---
+
+```{r include=FALSE}
+library(tibble)
+library(knitr)
+library(assertthat)
+```
+
+```{r echo=FALSE}
+features <- tribble(
+  ~id, ~description,
+  "Data input", "Allows for input of a data frame with items by row and features in the columns.",
+  "Column info", "Provides customization of columns, including geom, group, palette, and more.",
+  "Row info", "Allows for grouping and annotating rows.",
+  "Column groups", "Allows for grouping and annotating column groups.",
+  "Row groups", "Allows for grouping and annotating row groups.",
+  "Palettes", "Supports custom and standard color palettes for the heatmap.",
+  "Geom: funkyrect", "Supports 'funkyrect' geometry.",
+  "Geom: circle", "Supports 'circle' geometry.",
+  "Geom: rect", "Supports 'rect' geometry.",
+  "Geom: bar", "Supports 'bar' geometry.",
+  "Geom: pie", "Supports 'pie' geometry.",
+  "Geom: text", "Supports 'text' geometry.",
+  "Geom: image", "Supports 'image' geometry.",
+  "Numerical transformations", "Provides transformation capabilities for numerical columns.",
+  "Positioning options", "Options to control the positioning of various elements in the plot.",
+  "Subfigure labels", "Enables adding subfigure labels to different column groups.",
+  "Removed entries", "Supports removing specified entries from rows and replacing them with a label."
+)
+
+knitr::kable(features)
+```
+
+
+## Testing
+
+```{r echo=FALSE}
+unit_tests <- tribble(
+  ~name, ~feature_id, ~description,
+  "Test data input validity", "Data input", "Test whether the function handles valid data frame input correctly.",
+  "Test data input error handling", "Data input", "Test the function's error handling when provided with an invalid data frame input.",
+  "Test column info validity", "Column info", "Test if the function processes valid column information correctly.",
+  "Test column info error handling", "Column info", "Test the function's error handling when provided with invalid column information.",
+  "Test row info validity", "Row info", "Test if the function processes valid row information correctly.",
+  "Test row info error handling", "Row info", "Test the function's error handling when provided with invalid row information.",
+  "Test column groups validity", "Column groups", "Test if the function processes valid column groups correctly.",
+  "Test column groups error handling", "Column groups", "Test the function's error handling when provided with invalid column groups.",
+  "Test row groups validity", "Row groups", "Test if the function processes valid row groups correctly.",
+  "Test row groups error handling", "Row groups", "Test the function's error handling when provided with invalid row groups.",
+  "Test palette custom validity", "Palettes", "Test if the function handles valid custom palettes correctly.",
+  "Test palette standard validity", "Palettes", "Test if the function handles valid standard palettes correctly.",
+  "Test palette error handling", "Palettes", "Test the function's error handling when provided with invalid palettes.",
+  "Test geom funkyrect validity", "Geom: funkyrect", "Test if the function correctly renders 'funkyrect' geometry.",
+  "Test geom circle validity", "Geom: circle", "Test if the function correctly renders 'circle' geometry.",
+  "Test geom rect validity", "Geom: rect", "Test if the function correctly renders 'rect' geometry.",
+  "Test geom bar validity", "Geom: bar", "Test if the function correctly renders 'bar' geometry.",
+  "Test geom pie validity", "Geom: pie", "Test if the function correctly renders 'pie' geometry.",
+  "Test geom text validity", "Geom: text", "Test if the function correctly renders 'text' geometry.",
+  "Test geom image validity", "Geom: image", "Test if the function correctly renders 'image' geometry.",
+  "Test numerical transformations", "Numerical transformations", "Test if the function applies numerical transformations correctly.",
+  "Test positioning options", "Positioning options", "Test if the function handles positioning options like hjust, vjust, size, label correctly.",
+  "Test subfigure labels", "Subfigure labels", "Test if the function correctly adds subfigure labels to different column groups.",
+  "Test removed entries", "Removed entries", "Test if the function correctly removes specified entries from rows and replaces them with a label."
+)
+
+assert_that(all(unit_tests$feature_id %in% features$id))
+
+knitr::kable(unit_tests)
+```
+
+
+
+| name                                  | description                                                                                                                  |
+|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| test_valid_data_input                 | Test if the function accepts a valid data input (data frame with an 'id' column).                                           |
+| test_invalid_data_input               | Test if the function throws an error when given invalid data input (e.g., no 'id' column, not a data frame).                 |
+| test_valid_column_info_input          | Test if the function accepts valid column_info input (data frame with required columns).                                    |
+| test_invalid_column_info_input        | Test if the function throws an error when given invalid column_info input (e.g., missing required columns).                 |
+| test_valid_row_info_input             | Test if the function accepts valid row_info input (data frame with 'id' and 'group' columns).                              |
+| test_invalid_row_info_input           | Test if the function throws an error when given invalid row_info input (e.g., missing required columns).                     |
+| test_valid_column_groups_input        | Test if the function accepts valid column_groups input (data frame with 'group' and optional columns).                      |
+| test_invalid_column_groups_input      | Test if the function throws an error when given invalid column_groups input (e.g., missing 'group' column).                 |
+| test_valid_row_groups_input           | Test if the function accepts valid row_groups input (data frame with 'group' and optional columns).                         |
+| test_invalid_row_groups_input         | Test if the function throws an error when given invalid row_groups input (e.g., missing 'group' column).                    |
+| test_valid_palettes_input             | Test if the function accepts valid palettes input (named list or standard palette names).                                   |
+| test_invalid_palettes_input           | Test if the function throws an error when given invalid palettes input (e.g., not a named list or unknown palette name).     |
+| test_valid_scale_column_input         | Test if the function accepts valid scale_column input (logical value).                                                      |
+| test_invalid_scale_column_input       | Test if the function throws an error when given invalid scale_column input (e.g., not a logical value).                      |
+| test_valid_add_abc_input              | Test if the function accepts valid add_abc input (logical value).                                                           |
+| test_invalid_add_abc_input            | Test if the function throws an error when given invalid add_abc input (e.g., not a logical value).                           |
+| test_valid_col_annot_offset_input     | Test if the function accepts valid col_annot_offset input (numeric value).                                                  |
+| test_invalid_col_annot_offset_input   | Test if the function throws an error when given invalid col_annot_offset input (e.g., not a numeric value).                  |
+| test_valid_col_annot_angle_input      | Test if the function accepts valid col_annot_angle input (numeric value).                                                   |
+| test_invalid_col_annot_angle_input    | Test if the function throws an error when given invalid col_annot_angle input (e.g., not a numeric value).                   |
+| test_valid_removed_entries_input      | Test if the function accepts valid removed_entries input (character vector or NULL).                                        |
+| test_invalid_removed_entries_input    | Test if the function throws an error when given invalid removed_entries input (e.g., not a character vector or NULL).        |
+| test_valid_expand_input               | Test if the function accepts valid expand input (list of numeric values).                                                   |
+| test_invalid_expand_input             | Test if the function throws an error when given invalid expand input (e.g., not a list of numeric values or missing required elements). |
+| test_geom_funkyrect                   | Test if the function correctly handles and displays the "funkyrect" geom in the heatmap.                                     |
+| test_geom_circle                      | Test if the function correctly handles and displays the "circle" geom in the heatmap.                                        |
+| test_geom_rect                        | Test if the function correctly handles and displays the "rect" geom in the heatmap.                                          |
+| test_geom_bar                         | Test if the function correctly handles and displays the "bar" geom in the heatmap.                                           |
+| test_geom_pie                         | Test if the function correctly handles and displays the "pie" geom in the heatmap.                                           |
+| test_geom_text                        | Test if the function correctly handles and displays the "text" geom in the heatmap.                                          |
+| test_overlay_and_width | Test if the function correctly handles the overlay and width options in column_info. |
+| test_legend_handling | Test if the function correctly handles the legend option in column_info. |
+| test_hjust_vjust_size_label_handling | Test if the function correctly handles hjust, vjust, size, and label options for geom = "text" in column_info. |
+| test_options_handling | Test if the function correctly handles options in column_info, spreading values across other columns. |
+| test_row_and_column_grouping | Test if the function correctly groups rows and columns based on row_groups and column_groups input. |
+| test_palette_application | Test if the function correctly applies palettes based on the palettes input and the values in column_info$palette. |
+| test_scale_column_application | Test if the function correctly applies min-max scaling to each numerical column when scale_column is set to TRUE. |
+| test_add_abc_application | Test if the function correctly adds subfigure labels to different column groups when add_abc is set to TRUE. |
+| test_col_annot_offset_and_angle | Test if the function correctly applies the col_annot_offset and col_annot_angle options to the column annotation labels.|
+| test_removed_entries_application | Test if the function correctly removes specified entries from rows and replaces them with a "Not shown" label. |
+| test_expand_application | Test if the function correctly expands the plot in specified directions based on the expand input. |
+
