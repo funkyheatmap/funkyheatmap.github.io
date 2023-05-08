@@ -26,7 +26,7 @@ features <- tribble(
   "Geom: bar",                  "Supports 'bar' geometry.",                                                         "✓",      "✓",
   "Geom: pie",                  "Supports 'pie' geometry.",                                                         "✓",      "✓",
   "Geom: text",                 "Supports 'text' geometry.",                                                        "✓",      "✓",
-  "Geom: image",                "Supports 'image' geometry.",                                                       "[PR#6](https://github.com/funkyheatmap/funkyheatmap/pull/6)",       "✓",
+  "Geom: image",                "Supports 'image' geometry.",                                                       "✓",       "✓",
   "Numerical transformations",  "Provides transformation capabilities for numerical columns.",                      "✓",      "✓",
   "Positioning options",        "Options to control the positioning of various elements in the plot.",              "✓",      "✓",
   "Subfigure labels",           "Enables adding subfigure labels to different column groups.",                      "✓",      "✓",
