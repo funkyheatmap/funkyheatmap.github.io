@@ -19,7 +19,7 @@ features <- tribble(
   "Row info",                   "Allows for grouping and annotating rows.",                                         "✓",      "✓",      "",
   "Column groups",              "Allows for grouping and annotating column groups.",                                "✓",      "✓",      "✓",
   "Row groups",                 "Allows for grouping and annotating row groups.",                                   "✓",      "✓",      "",
-  "Palettes",                   "Supports custom and standard color palettes for the heatmap.",                     "✓",      "✓",      "✓",
+  "Palettes",                   "Supports custom and standard color palettes for the heatmap.",                     "✓",      "✓",      "±",
   "Geom: funkyrect",            "Supports 'funkyrect' geometry.",                                                   "✓",      "✓",      "✓",
   "Geom: circle",               "Supports 'circle' geometry.",                                                      "✓",      "✓",      "✓",
   "Geom: rect",                 "Supports 'rect' geometry.",                                                        "✓",      "✓",      "",
