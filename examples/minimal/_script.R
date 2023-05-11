@@ -1,6 +1,8 @@
 library(tidyverse)
 
 set.seed(1)
+
+# create MRE
 data <- tibble(
   id = LETTERS[1:10],
   text = paste0("item ", id),
@@ -17,12 +19,14 @@ data <- tibble(
     bar = circle * funkyrect * rect
   ) %>%
   arrange(desc(bar))
+
+# create column info
 column_info <- tribble(
   # tribble_start
   ~id,          ~name,           ~geom,        ~group,         ~palette,       ~options,
   "text",       "Text",          "text",       "first",        NA_character_,  list(width = 3),
-  #,            "image",         "Image",      "image",        "first",        list(),
-  "image",      "Image",         "text",       "first",        NA_character_,  list(width = 2),
+  "image",      "Image",         "image",      "first",        NA_character_,  list(directory = "images/", extension = ".png"),
+  # "image",      "Image",         "text",       "first",        NA_character_,  list(width = 2),
   "bar",        "Bar",           "bar",        "second",       "second",       list(width = 2),
   "circle",     "Circle",        "circle",     "second",       "second",       list(),
   "funkyrect",  "FunkyRect",     "funkyrect",  "second",       "second",       list(),
@@ -41,6 +45,16 @@ column_groups <- tribble(
   "fourth",  "fourth",  "Fourth"
   # tribble_end
 )
+row_info <- tibble(
+  group = c(rep("A-D", 4), rep("E-G", 3), rep("H-J", 3)),
+  id = LETTERS[1:10]
+)
+row_groups <- tribble(
+  ~group, ~Group, ~GROUP,
+  "A-D", "from A to D", "LETTERS",
+  "E-G", "from E to G", "LETTERS",
+  "H-J", "from H to J", "LETTERS",
+)
 palettes <- list(
   first = funkyheatmap:::default_palettes$numerical$Greys,
   second = funkyheatmap:::default_palettes$numerical$Blues,
@@ -53,5 +67,7 @@ funkyheatmap::funky_heatmap(
   data = data,
   column_info = column_info,
   column_groups = column_groups,
+  row_info = row_info,
+  row_groups = row_groups,
   palettes = palettes
 )

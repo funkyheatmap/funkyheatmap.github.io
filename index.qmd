@@ -5,6 +5,7 @@ title: "funkyheatmap"
 ```{r include=FALSE}
 library(languageserver)
 library(rmarkdown)
+library(lintr)
 ```
 
 This is a Quarto website.
