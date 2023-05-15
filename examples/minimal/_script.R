@@ -1,73 +1,104 @@
 library(tibble)
 library(dplyr)
+library(purrr)
 
 set.seed(1)
 
 # create MRE
 data <- tibble(
-  id = LETTERS[1:10],
-  text = paste0("item ", id),
-  bar = 0, # to be computed afterwards
-  circle = rnorm(10),
-  funkyrect = rgeom(10, .1),
-  image = sample(c("one", "two", "three"), 10, replace = TRUE),
-  pie = lapply(seq_len(10), function(i) {
-    setNames(runif(4), LETTERS[1:4])
-  }),
-  rect = rbinom(10, 100, .1)
-) %>%
-  mutate(
-    bar = circle * funkyrect * rect
-  ) %>%
-  arrange(desc(bar))
+  id = LETTERS[1:11],
+  text1 = paste0("property of ", id),
+  text2 = paste0("another property of ", id),
+  numerical1 = seq(0, 1, length.out = 11),
+  numerical2 = seq(50, 100, length.out = 11),
+  numerical3 = seq(0, .1, length.out = 11),
+  numerical1_str = sprintf("%.1f", numerical1),
+  numerical2_str = sprintf("%i", numerical2),
+  numerical3_str = sprintf("%.2f", numerical3),
+  categories1 = lapply(
+    numerical1,
+    function(a) {
+      c("foo" = 1 - a, "bar" = a / 3, "zing" = 2 * a / 3)
+    }
+  ),
+  categories2 = lapply(
+    numerical2,
+    function(a) {
+      c("foo" = a, "bar" = a * 2, "zing" = a * 3)
+    }
+  ),
+  categories3 = lapply(
+    numerical3,
+    function(a) {
+      c("foo" = a + .0001, "bar" = a^2 + a / 2, "zing" = a^3 + a / 3)
+    }
+  )
+)
 
 # create column info
+    # "image",      "Image",         "image",      "first",        NA_character_,  list(directory = "images/", extension = ".png"),
 column_info <- tribble(
   # tribble_start
-  ~id,          ~name,           ~geom,        ~group,         ~palette,       ~options,
-  "text",       "Text",          "text",       "first",        NA_character_,  list(width = 3),
-  # "image",      "Image",         "image",      "first",        NA_character_,  list(directory = "images/", extension = ".png"),
-  "image",      "Image",         "text",       "first",        NA_character_,  list(width = 2),
-  "bar",        "Bar",           "bar",        "second",       "second",       list(width = 2),
-  "circle",     "Circle",        "circle",     "second",       "second",       list(),
-  "funkyrect",  "FunkyRect",     "funkyrect",  "second",       "second",       list(),
-  "rect",       "Rect",          "rect",       "third",        "third",        list(),
-  "pie",        "Pie",           "pie",        "third",        "third_cat",    list(),
-  "rect",       "Text-on-rect",  "rect",       "fourth",       "fourth",       list(),
-  "id",         "",              "text",       NA_character_,  NA_character_,  list(overlay = TRUE)
+  ~id,               ~name,          ~geom,        ~group,         ~palette,       ~options,
+  "id",              "",             "text",       "text",         NA_character_,  list(width = 1),
+  "text1",           "Text 1",       "text",       "text",         NA_character_,  list(width = 3),
+  "text2",           "Text 2",       "text",       "text",         NA_character_,  list(width = 4),
+  "numerical1",      "Bar 1",        "bar",        "bar",          "bar",          list(width = 2),
+  "numerical2",      "Bar 2",        "bar",        "bar",          "bar",          list(width = 2),
+  "numerical3",      "Bar 3",        "bar",        "bar",          "bar",          list(width = 2),
+  "numerical1",      "Circle 1",     "circle",     "circle",       "circle",       list(),
+  "numerical2",      "Circle 2",     "circle",     "circle",       "circle",       list(),
+  "numerical3",      "Circle 3",     "circle",     "circle",       "circle",       list(),
+  "numerical1",      "FunkyRect 1",  "funkyrect",  "funkyrect",    "funkyrect",    list(),
+  "numerical2",      "FunkyRect 2",  "funkyrect",  "funkyrect",    "funkyrect",    list(),
+  "numerical3",      "FunkyRect 3",  "funkyrect",  "funkyrect",    "funkyrect",    list(),
+  "numerical1",      "Rect 1",       "rect",       "rect",         "rect",         list(),
+  "numerical1_str",  "",             "text",       NA_character_,  NA_character_,  list(overlay = TRUE),
+  "numerical2",      "Rect 2",       "rect",       "rect",         "rect",         list(),
+  "numerical2_str",  "",             "text",       NA_character_,  NA_character_,  list(overlay = TRUE),
+  "numerical3",      "Rect 3",       "rect",       "rect",         "rect",         list(),
+  "numerical3_str",  "",             "text",       NA_character_,  NA_character_,  list(overlay = TRUE),
+  "categories1",     "Pie 1",        "pie",        "pie",          "pie",          list(),
+  "categories2",     "Pie 2",        "pie",        "pie",          "pie",          list(),
+  "categories3",     "Pie 3",        "pie",        "pie",          "pie",          list()
   # tribble_end
-)
+) %>%
+  mutate(options = map(options, function(x) {
+    if (length(x) == 0) {
+      tibble(a = 1)[, -1, drop = FALSE]
+    } else {
+      as_tibble(x)
+    }
+  })) %>%
+  unnest(cols = "options")
 column_groups <- tribble(
   # tribble_start
-  ~group,    ~palette,  ~level1,
-  "first",   "first",   "First",
-  "second",  "second",  "Second",
-  "third",   "third",   "Third",
-  "fourth",  "fourth",  "Fourth"
+  ~group,       ~palette,     ~level1,
+  "text",       "text",       "Text",
+  "bar",        "bar",        "Bars",
+  "circle",     "circle",     "Circles",
+  "funkyrect",  "funkyrect",  "FunkyRects",
+  "rect",       "rect",       "Rects",
+  "pie",        "pie",        "Pies"
   # tribble_end
 )
 row_info <- tibble(
-  group = c(rep("A-D", 4), rep("E-G", 3), rep("H-J", 3)),
-  id = LETTERS[1:10]
+  group = c(rep("A-D", 4), rep("E-G", 3), rep("H-K", 4)),
+  id = LETTERS[1:11]
 )
-# row_groups <- tribble(
-#   ~group, ~Group, ~GROUP,
-#   "A-D", "from A to D", "LETTERS",
-#   "E-G", "from E to G", "LETTERS",
-#   "H-J", "from H to J", "LETTERS",
-# )
 row_groups <- tribble(
   ~group, ~Group,
   "A-D", "from A to D",
   "E-G", "from E to G",
-  "H-J", "from H to J"
+  "H-K", "from H to K"
 )
 palettes <- list(
-  first = funkyheatmap:::default_palettes$numerical$Greys,
-  second = funkyheatmap:::default_palettes$numerical$Blues,
-  third = funkyheatmap:::default_palettes$numerical$Reds,
-  fourth = funkyheatmap:::default_palettes$numerical$Greens,
-  third_cat = setNames(funkyheatmap:::default_palettes$categorical$Set3[1:4], c("A", "B", "C", "D"))
+  text = funkyheatmap:::default_palettes$numerical$Greys,
+  bar = funkyheatmap:::default_palettes$numerical$Blues,
+  circle = funkyheatmap:::default_palettes$numerical$Reds,
+  funkyrect = funkyheatmap:::default_palettes$numerical$YlOrBr,
+  rect = funkyheatmap:::default_palettes$numerical$Greens,
+  pie = setNames(funkyheatmap:::default_palettes$categorical$Set3[1:3], c("foo", "bar", "zing"))
 )
 
 data_dir <- "examples/minimal/data"

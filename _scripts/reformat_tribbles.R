@@ -2,6 +2,7 @@
 library(languageserver)
 library(rlang)
 library(readr)
+library(purrr)
 
 #' Align tribbles in a file
 #'
