@@ -114,7 +114,7 @@ data_write <- data %>% mutate_at(
     })
   }
 )
-readr::write_tsv(data_write, paste0(data_dir, "/data.tsv"), escape = "backslash")
+readr::write_tsv(data_write, paste0(data_dir, "/data.tsv"), escape = "none")
 readr::write_tsv(column_info, paste0(data_dir, "/column_info.tsv")) # todo: fix options
 readr::write_tsv(column_groups, paste0(data_dir, "/column_groups.tsv"))
 readr::write_tsv(row_info, paste0(data_dir, "/row_info.tsv"))

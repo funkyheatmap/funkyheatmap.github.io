@@ -1,12 +1,12 @@
 id	text1	text2	numerical1	numerical2	numerical3	numerical1_str	numerical2_str	numerical3_str	categories1	categories2	categories3
-A	property of A	another property of A	0	50	0	0.0	50	0.00	{\"foo\":1,\"bar\":0,\"zing\":0}	{\"foo\":50,\"bar\":100,\"zing\":150}	{\"foo\":0.0001,\"bar\":0,\"zing\":0}
-B	property of B	another property of B	0.1	55	0.01	0.1	55	0.01	{\"foo\":0.9,\"bar\":0.0333,\"zing\":0.0667}	{\"foo\":55,\"bar\":110,\"zing\":165}	{\"foo\":0.0101,\"bar\":0.0051,\"zing\":0.0033}
-C	property of C	another property of C	0.2	60	0.02	0.2	60	0.02	{\"foo\":0.8,\"bar\":0.0667,\"zing\":0.1333}	{\"foo\":60,\"bar\":120,\"zing\":180}	{\"foo\":0.0201,\"bar\":0.0104,\"zing\":0.0067}
-D	property of D	another property of D	0.30000000000000004	65	0.03	0.3	65	0.03	{\"foo\":0.7,\"bar\":0.1,\"zing\":0.2}	{\"foo\":65,\"bar\":130,\"zing\":195}	{\"foo\":0.0301,\"bar\":0.0159,\"zing\":0.01}
-E	property of E	another property of E	0.4	70	0.04	0.4	70	0.04	{\"foo\":0.6,\"bar\":0.1333,\"zing\":0.2667}	{\"foo\":70,\"bar\":140,\"zing\":210}	{\"foo\":0.0401,\"bar\":0.0216,\"zing\":0.0134}
-F	property of F	another property of F	0.5	75	0.05	0.5	75	0.05	{\"foo\":0.5,\"bar\":0.1667,\"zing\":0.3333}	{\"foo\":75,\"bar\":150,\"zing\":225}	{\"foo\":0.0501,\"bar\":0.0275,\"zing\":0.0168}
-G	property of G	another property of G	0.6000000000000001	80	0.06	0.6	80	0.06	{\"foo\":0.4,\"bar\":0.2,\"zing\":0.4}	{\"foo\":80,\"bar\":160,\"zing\":240}	{\"foo\":0.0601,\"bar\":0.0336,\"zing\":0.0202}
-H	property of H	another property of H	0.7000000000000001	85	0.07	0.7	85	0.07	{\"foo\":0.3,\"bar\":0.2333,\"zing\":0.4667}	{\"foo\":85,\"bar\":170,\"zing\":255}	{\"foo\":0.0701,\"bar\":0.0399,\"zing\":0.0237}
-I	property of I	another property of I	0.8	90	0.08	0.8	90	0.08	{\"foo\":0.2,\"bar\":0.2667,\"zing\":0.5333}	{\"foo\":90,\"bar\":180,\"zing\":270}	{\"foo\":0.0801,\"bar\":0.0464,\"zing\":0.0272}
-J	property of J	another property of J	0.9	95	0.09	0.9	95	0.09	{\"foo\":0.1,\"bar\":0.3,\"zing\":0.6}	{\"foo\":95,\"bar\":190,\"zing\":285}	{\"foo\":0.0901,\"bar\":0.0531,\"zing\":0.0307}
-K	property of K	another property of K	1	100	0.1	1.0	100	0.10	{\"foo\":0,\"bar\":0.3333,\"zing\":0.6667}	{\"foo\":100,\"bar\":200,\"zing\":300}	{\"foo\":0.1001,\"bar\":0.06,\"zing\":0.0343}
+A	property of A	another property of A	0	50	0	0.0	50	0.00	{"foo":1,"bar":0,"zing":0}	{"foo":50,"bar":100,"zing":150}	{"foo":0.0001,"bar":0,"zing":0}
+B	property of B	another property of B	0.1	55	0.01	0.1	55	0.01	{"foo":0.9,"bar":0.0333,"zing":0.0667}	{"foo":55,"bar":110,"zing":165}	{"foo":0.0101,"bar":0.0051,"zing":0.0033}
+C	property of C	another property of C	0.2	60	0.02	0.2	60	0.02	{"foo":0.8,"bar":0.0667,"zing":0.1333}	{"foo":60,"bar":120,"zing":180}	{"foo":0.0201,"bar":0.0104,"zing":0.0067}
+D	property of D	another property of D	0.30000000000000004	65	0.03	0.3	65	0.03	{"foo":0.7,"bar":0.1,"zing":0.2}	{"foo":65,"bar":130,"zing":195}	{"foo":0.0301,"bar":0.0159,"zing":0.01}
+E	property of E	another property of E	0.4	70	0.04	0.4	70	0.04	{"foo":0.6,"bar":0.1333,"zing":0.2667}	{"foo":70,"bar":140,"zing":210}	{"foo":0.0401,"bar":0.0216,"zing":0.0134}
+F	property of F	another property of F	0.5	75	0.05	0.5	75	0.05	{"foo":0.5,"bar":0.1667,"zing":0.3333}	{"foo":75,"bar":150,"zing":225}	{"foo":0.0501,"bar":0.0275,"zing":0.0168}
+G	property of G	another property of G	0.6000000000000001	80	0.06	0.6	80	0.06	{"foo":0.4,"bar":0.2,"zing":0.4}	{"foo":80,"bar":160,"zing":240}	{"foo":0.0601,"bar":0.0336,"zing":0.0202}
+H	property of H	another property of H	0.7000000000000001	85	0.07	0.7	85	0.07	{"foo":0.3,"bar":0.2333,"zing":0.4667}	{"foo":85,"bar":170,"zing":255}	{"foo":0.0701,"bar":0.0399,"zing":0.0237}
+I	property of I	another property of I	0.8	90	0.08	0.8	90	0.08	{"foo":0.2,"bar":0.2667,"zing":0.5333}	{"foo":90,"bar":180,"zing":270}	{"foo":0.0801,"bar":0.0464,"zing":0.0272}
+J	property of J	another property of J	0.9	95	0.09	0.9	95	0.09	{"foo":0.1,"bar":0.3,"zing":0.6}	{"foo":95,"bar":190,"zing":285}	{"foo":0.0901,"bar":0.0531,"zing":0.0307}
+K	property of K	another property of K	1	100	0.1	1.0	100	0.10	{"foo":0,"bar":0.3333,"zing":0.6667}	{"foo":100,"bar":200,"zing":300}	{"foo":0.1001,"bar":0.06,"zing":0.0343}

@@ -14,7 +14,7 @@ data <- readr::read_tsv(paste0(dir, "/data/data.tsv")) %>%
     c("categories1", "categories2", "categories3"),
     function(column) {
       lapply(column, function(val) {
-        unlist(jsonlite::fromJSON(gsub("\\\\\"", "\"", val)))
+        unlist(jsonlite::fromJSON(val))
       })
     }
   ) %>%
