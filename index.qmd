@@ -1,5 +1,6 @@
 ---
-title: "funkyheatmap"
+title: "funkyheatmap: Visualising data frames"
+bibliography: library.bib
 ---
 
 ```{r include=FALSE}
@@ -8,6 +9,43 @@ library(rmarkdown)
 library(lintr)
 ```
 
-This is a Quarto website.
+`{funkyheatmap}` is a way for creating customisable heatmaps.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Installation
+
+You can install funkyheatmap like so:
+
+```r
+install.packages("funkyheatmap")
+```
+
+You can also download funkyheatmap as a [standalone Bash executable](http://funkyheatmap.dynverse.org/articles/executable.html).
+
+
+## Example
+
+...
+
+## More information 
+  
+* The [reference documentation](https://funkyheatmap.dynverse.org/reference/index.html)
+  on `funky_heatmap()` details the exact formats of each annotation object that you can pass to it.
+
+* Check out the vignette [`vignette("mtcars", "funkyheatmap")`](https://funkyheatmap.dynverse.org/articles/mtcars.html) for more information on how to customize this visualisation.
+
+* In [`vignette("dynbenchmark", "funkyheatmap")`](https://funkyheatmap.dynverse.org/articles/dynbenchmark.html) we 
+  use funkyheatmap to regenerate the figures from Saelens et al. (2019) [doi:10.1038/s41587-019-0071-9](https://doi.org/10.1038/s41587-019-0071-9).
+
+* We used [Viash](https://viash.io) to wrap the `funkyheatmap::funky_heatmap()` function
+  as a [standalone executable](https://funkyheatmap.dynverse.org/articles/executable.html).
+
+## Works with funkyheatmap(-like) visualisations
+
+* @comparisonsinglecell_saelens2019
+* @benchmarkingatlaslevel_luecken2020
+* @benchmarkingsinglecell_mereu2020
+* @benchmarkingalgorithmsgene_pratapa2019
+* @benchmarkingintegrationmethods_yan2022
+* @spotlessreproduciblepipeline_sangaram2023
+
+Create a PR to include your work in this list!
