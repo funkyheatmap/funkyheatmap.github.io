@@ -39,28 +39,28 @@ data <- tibble(
     # "image",      "Image",         "image",      "first",        NA_character_,  list(directory = "images/", extension = ".png"),
 column_info <- tribble(
   # tribble_start
-  ~id,               ~name,          ~geom,        ~group,         ~palette,       ~options,
-  "id",              "",             "text",       "text",         NA_character_,  list(width = 1),
-  "text1",           "Text 1",       "text",       "text",         NA_character_,  list(width = 3),
-  "text2",           "Text 2",       "text",       "text",         NA_character_,  list(width = 4),
-  "numerical1",      "Bar 1",        "bar",        "bar",          "bar",          list(width = 2),
-  "numerical2",      "Bar 2",        "bar",        "bar",          "bar",          list(width = 2),
-  "numerical3",      "Bar 3",        "bar",        "bar",          "bar",          list(width = 2),
-  "numerical1",      "Circle 1",     "circle",     "circle",       "circle",       list(),
-  "numerical2",      "Circle 2",     "circle",     "circle",       "circle",       list(),
-  "numerical3",      "Circle 3",     "circle",     "circle",       "circle",       list(),
-  "numerical1",      "FunkyRect 1",  "funkyrect",  "funkyrect",    "funkyrect",    list(),
-  "numerical2",      "FunkyRect 2",  "funkyrect",  "funkyrect",    "funkyrect",    list(),
-  "numerical3",      "FunkyRect 3",  "funkyrect",  "funkyrect",    "funkyrect",    list(),
-  "numerical1",      "Rect 1",       "rect",       "rect",         "rect",         list(),
-  "numerical1_str",  "",             "text",       NA_character_,  NA_character_,  list(overlay = TRUE),
-  "numerical2",      "Rect 2",       "rect",       "rect",         "rect",         list(),
-  "numerical2_str",  "",             "text",       NA_character_,  NA_character_,  list(overlay = TRUE),
-  "numerical3",      "Rect 3",       "rect",       "rect",         "rect",         list(),
-  "numerical3_str",  "",             "text",       NA_character_,  NA_character_,  list(overlay = TRUE),
-  "categories1",     "Pie 1",        "pie",        "pie",          "pie",          list(),
-  "categories2",     "Pie 2",        "pie",        "pie",          "pie",          list(),
-  "categories3",     "Pie 3",        "pie",        "pie",          "pie",          list()
+  ~id,            ~name,          ~geom,        ~group,         ~palette,        ~options,
+  "id",           "",             "text",       "text",         NA_character_,   list(width = 1),
+  "text1",        "Text 1",       "text",       "text",         NA_character_,   list(width = 3),
+  "text2",        "Text 2",       "text",       "text",         NA_character_,   list(width = 4),
+  "numerical1",   "Bar 1",        "bar",        "bar",          "bar",           list(width = 2),
+  "numerical2",   "Bar 2",        "bar",        "bar",          "bar",           list(width = 2),
+  "numerical3",   "Bar 3",        "bar",        "bar",          "bar",           list(width = 2),
+  "numerical1",   "Circle 1",     "circle",     "circle",       "circle",        list(),
+  "numerical2",   "Circle 2",     "circle",     "circle",       "circle",        list(),
+  "numerical3",   "Circle 3",     "circle",     "circle",       "circle",        list(),
+  "numerical1",   "FunkyRect 1",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
+  "numerical2",   "FunkyRect 2",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
+  "numerical3",   "FunkyRect 3",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
+  "numerical1",   "Rect 1",       "rect",       "rect",         "rect",          list(),
+  "numerical1",   "",             "text",       NA_character_,  "black6white4",  list(label = "numerical1_str", overlay = TRUE),
+  "numerical2",   "Rect 2",       "rect",       "rect",         "rect",          list(),
+  "numerical2",   "",             "text",       NA_character_,  "black6white4",  list(label = "numerical2_str", overlay = TRUE),
+  "numerical3",   "Rect 3",       "rect",       "rect",         "rect",          list(),
+  "numerical3",   "",             "text",       NA_character_,  "black6white4",  list(label = "numerical3_str", overlay = TRUE),
+  "categories1",  "Pie 1",        "pie",        "pie",          "pie",           list(),
+  "categories2",  "Pie 2",        "pie",        "pie",          "pie",           list(),
+  "categories3",  "Pie 3",        "pie",        "pie",          "pie",           list()
   # tribble_end
 ) %>%
   mutate(options = map(options, function(x) {
@@ -98,18 +98,35 @@ palettes <- list(
   circle = funkyheatmap:::default_palettes$numerical$Reds,
   funkyrect = funkyheatmap:::default_palettes$numerical$YlOrBr,
   rect = funkyheatmap:::default_palettes$numerical$Greens,
-  pie = setNames(funkyheatmap:::default_palettes$categorical$Set3[1:3], c("foo", "bar", "zing"))
+  pie = setNames(funkyheatmap:::default_palettes$categorical$Set3[1:3], c("foo", "bar", "zing")),
+  black6white4 = c(rep("white", 4), rep("black", 6))
 )
 
 data_dir <- "examples/minimal/data"
 if (!dir.exists(data_dir)) dir.create(data_dir, recursive = TRUE)
 
-readr::write_tsv(data, paste0(data_dir, "/data.tsv"))
+# convert nested values before writing
+data_write <- data %>% mutate_at(
+  c("categories1", "categories2", "categories3"),
+  function(column) {
+    sapply(column, function(val) {
+      as.character(jsonlite::toJSON(as.list(val), auto_unbox = TRUE))
+    })
+  }
+)
+readr::write_tsv(data_write, paste0(data_dir, "/data.tsv"), escape = "backslash")
 readr::write_tsv(column_info, paste0(data_dir, "/column_info.tsv")) # todo: fix options
 readr::write_tsv(column_groups, paste0(data_dir, "/column_groups.tsv"))
 readr::write_tsv(row_info, paste0(data_dir, "/row_info.tsv"))
 readr::write_tsv(row_groups, paste0(data_dir, "/row_groups.tsv"))
-jsonlite::write_json(palettes, paste0(data_dir, "/palettes.json"))
+palettes_write <- palettes
+palettes_write$pie <- as.list(palettes$pie)
+jsonlite::write_json(
+  palettes_write,
+  paste0(data_dir, "/palettes.json"),
+  pretty = TRUE,
+  auto_unbox = TRUE
+)
 
 funkyheatmap::funky_heatmap(
   data = data,
