@@ -32,21 +32,21 @@
     "href": "paper/index.html",
     "title": "funkyheatmap: Visualize benchmarking results",
     "section": "",
-    "text": "{funkyheatmap} is an innovative R package designed to create publication-ready visualisations of data frames that encompass both numerical and non-numerical data. The package offers a simple user interface, only requiring a user to provide the data frame itself as input to generate a visualisation, but also allows users to fine-tune the visualisations by specifying row- and column-specific parameters.\nWith its ease of use and yet great customizability, {funkyheatmap} is highly suitable for exploring summarised results in a research context. While it has been used extensively to visualise benchmarking results in single-cell omics (Saelens et al. 2019; Luecken et al. 2021, 2023; Mereu et al. 2020; Pratapa et al. 2019; Yan and Sun 2022; Sang-aram et al. 2023), its applicability extends to use-cases beyond this particular domain."
+    "text": "{funkyheatmap} is an innovative R package designed to create publication-ready visualisations of data frames that encompass both numerical and non-numerical data. The package offers a simple user interface, only requiring a user to provide the data frame itself as input to generate a visualisation, but also allows users to fine-tune the visualisations by specifying row- and column-specific parameters.\nWith its ease of use and yet great customizability, {funkyheatmap} is highly suitable for exploring summarised results in a research context. While it has been used extensively to visualise benchmarking results in single-cell omics (Saelens et al. 2019; Luecken et al. 2021, 2023; Yan and Sun 2022; Sang-aram et al. 2023), its applicability extends to use-cases beyond this particular domain."
   },
   {
     "objectID": "paper/index.html#use-cases",
     "href": "paper/index.html#use-cases",
     "title": "funkyheatmap: Visualize benchmarking results",
     "section": "Use Cases",
-    "text": "Use Cases\nFunkyheatmap has been successfully used in several benchmarking papers, including Saelens et al. (2019) and Luecken et al. (2022), demonstrating its effectiveness and utility in the research community. The package is particularly valuable for exploratory data analysis and for presenting summarized results in a visually appealing and informative manner. (Saelens et al. 2019; Luecken et al. 2021, 2023; Mereu et al. 2020; Pratapa et al. 2019; Yan and Sun 2022; Sang-aram et al. 2023) also OpenProblems"
+    "text": "Use Cases\nThe first funky heatmaps were published in Saelens et al. (2019) and Luecken et al. (2021). Since the source code was not yet available as a standalone R package, several publications borrowed the {funkyheatmap}’s design concepts to achieve a similar visualisation (Mereu et al. 2020; Pratapa et al. 2019), underlining the original need for a standalone reusable package for generating funky heatmaps. Since publishing {funkyheatmap} on CRAN, {funkyheatmap} has been used in several other benchmarking studies to visualise the end-results (Yan and Sun 2022; Sang-aram et al. 2023; Luecken et al. 2023), demonstrating its effectiveness and utility in the research community."
   },
   {
     "objectID": "paper/index.html#work-in-progress",
     "href": "paper/index.html#work-in-progress",
     "title": "funkyheatmap: Visualize benchmarking results",
     "section": "Work in progress",
-    "text": "Work in progress\nIn order to provide a user-friendly experience for python-based workflows, we reimplemented the {funkyheatmap} package in python, relying on the ubiquitous matplotlib library. To guarantee feature parity between the different {funkyheatmap} implementations, test data is shared between the implementation tests, ensuring that the resulting plots look identical. In order to use {funkyheatmap} to disseminate results online, a javascript port of the package was made. This version provides some extra functionality in the form of a limited graphical user interface, allowing the user to hover over the data points to find exact values, and to filter and select certain rows and columns."
+    "text": "Work in progress\nIn order to provide a user-friendly experience for Python-based workflows, we reimplemented the {funkyheatmap} package in Python, relying on the ubiquitous matplotlib library (Hunter 2007).To guarantee feature parity between the different {funkyheatmap} implementations, test data is shared between the implementation tests, ensuring that the resulting plots look identical. To allow for interactive exploration of the results, a JavaScript port (funkyheatmapjs) is being developed. This version provides some extra functionality, allowing you to sort the rows by clicking on a column and to show a label on hover."
   },
   {
     "objectID": "index.html",
