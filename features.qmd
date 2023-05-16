@@ -30,7 +30,7 @@ features <- tribble(
   "Numerical transformations",  "Provides transformation capabilities for numerical columns.",                      "✓",  "✓",      "✓",
   "Positioning options",        "Options to control the positioning of various elements in the plot.",              "✓",  "✓",      "✓",
   "Subfigure labels",           "Enables adding subfigure labels to different column groups.",                      "✓",  "✓",      "✓",
-  "Removed entries",            "Supports removing specified entries from rows and replacing them with a label.",   "✓",  "",       "",
+  "Removed entries",            "Supports removing specified entries from rows and replacing them with a label.",   "✓",  "✓",       "",
   "Label on hover",             "Allow hovering over a result to see a label",                                      "",   "",       "✓"
 # tribble_end
 )
