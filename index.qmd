@@ -1,6 +1,6 @@
 ---
 title: "funkyheatmap: Visualising data frames"
-bibliography: library.bib
+bibliography: paper/library.bib
 ---
 
 ```{r include=FALSE}

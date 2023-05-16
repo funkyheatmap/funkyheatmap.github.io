@@ -118,7 +118,7 @@ funkyheatmap = (await require('d3@7').then(d3 => {
 })).default;
 ```
 
-## funkyheatmap-py in Python
+## funkyheatmappy in Python
 
 ```{python include=FALSE}
 from funkyheatmappy import funkyheatmap

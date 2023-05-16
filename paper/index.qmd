@@ -1,0 +1,165 @@
+---
+title: "funkyheatmap: Visualize benchmarking results"
+engine: knitr
+bibliography: library.bib
+tags:
+  - R
+  - benchmarking
+  - visualizing
+authors:
+- name: Robrecht Cannoodt
+  orcid: 0000-0003-3641-729X
+  email: robrecht@data-intuitive.com
+  affiliations:
+    - ref: di
+    - ref: dambi
+    - ref: twist
+- name: Wouter Saelens
+  orcid: 0000-0002-7114-6248
+  email: w.saelens@epfl.ch
+  affiliations:
+    - ref: epfl
+    - ref: dambi
+    - ref: twist
+- name: Yvan Saeys
+  orcid: 0000-0002-0415-1506
+  email: yvan.saeys@ugent.be
+  affiliations:
+    - ref: dambi
+    - ref: twist
+- name: Artuur Couckuyt
+  orcid: 0000-0001-7858-6521
+  email: artuur.couckuyt@ugent.be
+  affiliations:
+    - ref: dambi
+    - ref: twist
+- name: Louise Deconinck
+  orcid: 0000-0001-8100-6823
+  email: louise.deconinck@ugent.be
+  affiliations:
+    - ref: dambi
+    - ref: twist
+- name: Marta Interlandi
+  orcid: 0000-0002-6863-2552
+  email: marta.interlandi01@gmail.com
+  affiliations:
+    - ref: imi
+- name: Nikolay S. Markov
+  orcid: 0000-0002-3659-4387
+  email: nikolai.markov@icloud.com
+  affiliations:
+    - ref: nu
+affiliations:
+  - id: dambi
+    department: Data Mining and Modelling for Biomedicine group
+    name: VIB Center for Inflammation Research
+    city: Ghent
+    country: Belgium
+  - id: twist
+    department: Department of Applied Mathematics, Computer Science, and Statistics
+    name: Ghent University
+    city: Ghent
+    country: Belgium
+  - id: di
+    name: Data Intuitive
+    city: Lebbeke
+    country: Belgium
+  - id: epfl
+    name: École Polytechnique Fédérale de Lausanne (EPFL)
+    department: Institute of Bioengineering, School of Life Sciences
+    city: Lausanne
+    country: Switzerland
+  - id: imi
+    department: Institute of Medical Informatics
+    name: University of Muenster
+    city: Muenster
+    country: Germany
+  - id: nu
+    name: Northwestern University
+    department: Division of Pulmonary and Critical Care Medicine
+    city: Chicago
+    country: USA
+
+---
+
+
+<!-- 
+Submission guidelines: https://joss.readthedocs.io/en/latest/submitting.html.
+
+JOSS welcomes submissions from broadly diverse research areas. For this reason, we require that authors include in the paper some sentences that explain the software functionality and domain of use to a non-specialist reader. We also require that authors explain the research applications of the software. The paper should be between 250-1000 words. Authors submitting papers significantly longer than 1000 words may be asked to reduce the length of their paper.
+-->
+
+
+# Summary
+<!-- A summary describing the high-level functionality and purpose of the software for a diverse, non-specialist audience. -->
+
+`{funkyheatmap}` is an innovative R package designed to create publication-ready visualisations of data frames that encompass both numerical and non-numerical data. The package offers a simple user interface, only requiring a user to provide the data frame itself as input to generate a visualisation, but also allows users to fine-tune the visualisations by specifying row- and column-specific parameters. 
+
+With its ease of use and yet great customizability, `{funkyheatmap}` is highly suitable for exploring summarised results in a research context. While it has been used extensively to visualise benchmarking results in single-cell omics [@comparisonsinglecell_saelens2019; @benchmarkingatlaslevel_luecken2020; @definingbenchmarkingopen_luecken2023; @benchmarkingsinglecell_mereu2020; @benchmarkingalgorithmsgene_pratapa2019; @benchmarkingintegrationmethods_yan2022; @spotlessreproduciblepipeline_sangaram2023], its applicability extends to use-cases beyond this particular domain.
+
+
+# Statement of need
+<!-- A Statement of need section that clearly illustrates the research purpose of the software and places it in the context of related work. -->
+
+Data visualisation is an essential part of data analysis by revealing patterns, trends, and relationships between variables. Packages like ggplot2 [@ggplot2_wickham2009], Matplotlib [@matplotlib2dgraphics_hunter2007] and D3.js [@d3datadriven_bostock2011] offer an intuitive and flexible interface to generate tailor-made visualisations for many types of use cases, such as dot plots, bar charts, and heatmaps. 
+
+However, these visualisation tools require intricate scripts when visualising data frames with semantically mixed data types, such as textual, categorical, numerical and ratio data. Such data frames, as typically produced by benchmarking studies, require a combination of these heatmaps, dot plots, bar charts, pie charts and images to visualise results comprehensively and correctly. `{funkyheatmap}` addresses this limitation by offering a comprehensive and user-friendly solution for visualising mixed data types in data frames.
+
+
+
+# Results
+In order to facilitate the visualisation process, `{funkyheatmap}` provides many features to customise the resulting plot on different levels. 
+Categorical grouping is supported to allow the grouping of specified rows and columns, so that semantically related metrics and features can be separated. It is possible to assign a hierarchical index and different colour palettes to the columns, making these semantic groups explicit. When this hierarchical grouping of columns is not needed, but more subtle differentiation between columns or rows needs to be made, it is possible to assign different palettes and geometries to parts of the data frame. These geometries correspond to lower level visualisation options, such as bars, rounded rectangles, pie charts and even images or textual data, making the package suitable for a wide range of data.
+
+Funkyheatmap provides several key features to enhance the visualisation process:
+Flexibility: Users can annotate columns and rows, enabling them to assign multiple palettes or geometries to different parts of the data frame.
+Categorical Grouping: Rows and columns can be grouped together based on specific categories, allowing for clearer comparisons and analysis.
+Mixed Data Type Support: The package is designed to handle both numerical and non-numerical columns, making it suitable for a wide range of data frames.
+Customization: Users can easily customize the appearance of the heatmap, such as color schemes, fonts, and layout options.
+
+## Use Cases
+Funkyheatmap has been successfully used in several benchmarking papers, including Saelens et al. (2019) and Luecken et al. (2022), demonstrating its effectiveness and utility in the research community. The package is particularly valuable for exploratory data analysis and for presenting summarized results in a visually appealing and informative manner.
+[@comparisonsinglecell_saelens2019; @benchmarkingatlaslevel_luecken2020; @definingbenchmarkingopen_luecken2023; @benchmarkingsinglecell_mereu2020; @benchmarkingalgorithmsgene_pratapa2019; @benchmarkingintegrationmethods_yan2022; @spotlessreproduciblepipeline_sangaram2023]
+also OpenProblems
+
+# Implementation
+The visualisation package is implemented in R, using the underlying ggplot2 library. The declarative nature of the ggplot framework allows easy extension of `{funkyheatmap}`, making it relatively straightforward to add new geometries to the package. We also provide an extensive set of documentation resources to get started working with `{funkyheatmap}`. Besides function-level documentation, detailing the usage of public functions and the possible function arguments, we also provide detailed step-by-step vignettes showcasing the customisability of `{funkyheatmap}`.The testthat testing framework is used in combination with continuous integration to ensure software quality in the long run.
+
+## Work in progress
+In order to provide a user-friendly experience for python-based workflows, we reimplemented the `{funkyheatmap}` package in python, relying on the ubiquitous matplotlib library. To guarantee feature parity between the different `{funkyheatmap}` implementations, test data is shared between the implementation tests, ensuring that the resulting plots look identical.
+In order to use `{funkyheatmap}` to disseminate results online, a javascript port of the package was made. This version provides some extra functionality in the form of a limited graphical user interface, allowing the user to hover over the data points to find exact values, and to filter and select certain rows and columns.
+
+# Conclusion
+
+
+FunkyHeatmap is a powerful and versatile addition to the data visualisation toolkit, providing a comprehensive solution for visualising data frames with mixed data types. Its user-friendly interface and extensive customization options make it an essential tool for exploratory data analysis and for presenting summarised results in benchmarking papers. We encourage the research community to adopt and contribute to the development of this open-source package, further enhancing its capabilities and applications.
+
+
+
+# Acknowledgements
+<!-- Acknowledgement of any financial support. -->
+
+
+# References
+<!-- A list of key references, including to other software addressing related needs. Note that the references should include full names of venues, e.g., journals and conferences, not abbreviations only understood in the context of a specific discipline. -->
+
+```{citations, include=FALSE}
+citations:
+  ggplot2_wickham2009: 10.1007/978-0-387-98141-3
+  matplotlib2dgraphics_hunter2007: 10.1109/MCSE.2007.55
+  d3datadriven_bostock2011: 10.1109/TVCG.2011.185
+  comparisonsinglecell_saelens2019: 10.1038/s41587-019-0071-9
+  benchmarkingatlaslevel_luecken2020: 10.1038/s41592-021-01336-8
+  benchmarkingsinglecell_mereu2020: 10.1038/s41587-020-0469-4
+  benchmarkingalgorithmsgene_pratapa2019: 10.1101/642926
+  benchmarkingintegrationmethods_yan2022: 10.1093/bioinformatics/btac805
+  spotlessreproduciblepipeline_sangaram2023: 10.1101/2023.03.22.533802
+  definingbenchmarkingopen_luecken2023: |
+    @article{definingbenchmarkingopen_luecken2023,
+      year = {2023},
+      publisher = {In preparation},
+      author = {Malte D. Luecken and Scott Gigante and Daniel Burkhardt and Robrecht Cannoodt and Daniel Strobl and Nick Markov and Luke Zappia and \ldots},
+      title = {Defining and benchmarking open problems in single-cell data science}
+    }
+```
+
