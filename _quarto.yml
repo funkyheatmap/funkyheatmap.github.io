@@ -1,8 +1,15 @@
 project:
   type: website
+  preview:
+    port: 4311
 
 website:
-  title: "funkyheatmap"
+  title: "{funkyheatmap}"
+  description: "Visualising data frames"
+  site-url: https://funkyheatmap.github.io
+  repo-url: https://github.com/funkyheatmap/website
+  repo-actions: [edit, issue] 
+
   navbar:
     left:
       - href: index.qmd
