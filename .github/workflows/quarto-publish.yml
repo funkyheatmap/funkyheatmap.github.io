@@ -38,7 +38,7 @@ jobs:
           restore-keys: python-${{env.LINUX_VERSION}}-${{ env.pythonLocation }}-
 
       - name: Install cURL Headers
-        run: sudo apt-get install libcurl4-openssl-dev
+        run: sudo apt-get install libcurl4-openssl-dev libharfbuzz-dev libfribidi-dev
 
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
