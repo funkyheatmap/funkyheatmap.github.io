@@ -120,7 +120,7 @@ funkyheatmap = (await require('d3@7').then(d3 => {
 
 ## funkyheatmap-py in Python
 
-```{python}
+```{python include=FALSE}
 from funkyheatmappy import funkyheatmap
 import pandas as pd
 import json
