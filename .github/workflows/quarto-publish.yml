@@ -59,4 +59,3 @@ jobs:
         with:
           folder: _site
           branch: gh-pages
-          token: ${{ secrets.GTHB_PAT }}
