@@ -22,14 +22,41 @@ jobs:
         with:
           r-version: '4.2.0'
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Set up environment
+        run: |
+          echo "LINUX_VERSION=$(uname -rs)" >> $GITHUB_ENV
+
+      - name: Cache Python packages
+        uses: actions/cache@v3
+        with:
+          path: renv/python/virtualenvs/renv-python-3.10
+          key: python-${{env.LINUX_VERSION}}-${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+          restore-keys: python-${{env.LINUX_VERSION}}-${{ env.pythonLocation }}-
+
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Render with Quarto
+        shell: bash -l {0}  
+        run: |
+          source renv/python/virtualenvs/renv-python-3.11/bin/activate
+          quarto render
+
+      # - name: Publish
+      #   uses: quarto-dev/quarto-actions/publish@v2
+      #   with:
+      #     target: gh-pages
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          folder: _site
+          branch: gh-pages
+          token: ${{ secrets.GTHB_PAT }}

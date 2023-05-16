@@ -7,6 +7,7 @@ bibliography: library.bib
 library(languageserver)
 library(rmarkdown)
 library(lintr)
+library(reticulate)
 ```
 
 `{funkyheatmap}` is a way for creating customisable heatmaps.

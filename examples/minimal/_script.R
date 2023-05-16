@@ -11,7 +11,7 @@ data <- tibble(
   text1 = paste0("prop", id),
   text2 = paste0("property of ", id),
   numerical1 = seq(0, 1, length.out = 11),
-  numerical2 = seq(5, 10, length.out = 11),
+  numerical2 = seq(10L, 20L, length.out = 11),
   numerical3 = seq(0, .1, length.out = 11),
   numerical1_str = sprintf("%.1f", numerical1),
   numerical2_str = sprintf("%i", numerical2),
@@ -126,11 +126,11 @@ palettes_write <- palettes
 palettes_write$pie <- as.list(palettes$pie)
 
 # write to files
-readr::write_tsv(data_write, paste0(data_dir, "/data.tsv"), escape = "none")
-readr::write_tsv(column_info, paste0(data_dir, "/column_info.tsv")) # todo: fix options
-readr::write_tsv(column_groups, paste0(data_dir, "/column_groups.tsv"))
-readr::write_tsv(row_info, paste0(data_dir, "/row_info.tsv"))
-readr::write_tsv(row_groups, paste0(data_dir, "/row_groups.tsv"))
+readr::write_tsv(data_write, paste0(data_dir, "/data.tsv"), quote = "all")
+readr::write_tsv(column_info, paste0(data_dir, "/column_info.tsv"), quote = "all") # todo: fix options
+readr::write_tsv(column_groups, paste0(data_dir, "/column_groups.tsv"), quote = "all")
+readr::write_tsv(row_info, paste0(data_dir, "/row_info.tsv"), quote = "all")
+readr::write_tsv(row_groups, paste0(data_dir, "/row_groups.tsv"), quote = "all")
 jsonlite::write_json(
   palettes_write,
   paste0(data_dir, "/palettes.json"),

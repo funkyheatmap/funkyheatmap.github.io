@@ -1,7 +1,7 @@
-group	palette	level1
-text	text	Text
-bar	bar	Bars
-circle	circle	Circles
-funkyrect	funkyrect	FunkyRects
-rect	rect	Rects
-pie	pie	Pies
+"group"	"palette"	"level1"
+"text"	"text"	"Text"
+"bar"	"bar"	"Bars"
+"circle"	"circle"	"Circles"
+"funkyrect"	"funkyrect"	"FunkyRects"
+"rect"	"rect"	"Rects"
+"pie"	"pie"	"Pies"
