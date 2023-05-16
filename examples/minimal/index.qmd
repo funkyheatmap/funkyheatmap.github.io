@@ -134,14 +134,15 @@ row_info = pd.read_csv("data/row_info.tsv", delimiter="\t")
 row_groups = pd.read_csv("data/row_groups.tsv", delimiter="\t")
 with open("data/palettes.json") as f:
   palettes = json.load(f)
+```
 
+```{python}
 # TODO: remove workaround
 column_info.index = column_info["id"]
 column_info["name"] = [ "" if not isinstance(name, str) else name for name in column_info["name"] ]
 row_info.index = row_info["id"]
-```
 
-```{python}
+# TODO: rename function to `funky_heatmap()`
 funkyheatmap(
   data=data,
   column_info=column_info,
