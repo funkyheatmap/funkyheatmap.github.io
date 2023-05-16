@@ -39,7 +39,7 @@
     "href": "paper/index.html#example",
     "title": "funkyheatmap: Visualising data frames with mixed data types",
     "section": "Example",
-    "text": "Example\nFigure 1] shows ….\n\nlibrary(funkyheatmap)\n\nfunky_heatmap(\n  data = dynbenchmark_data$data,\n  column_info = dynbenchmark_data$column_info,\n  column_groups = dynbenchmark_data$column_groups,\n  row_info = dynbenchmark_data$row_info,\n  row_groups = dynbenchmark_data$row_groups,\n  palettes = dynbenchmark_data$palettes,\n  col_annot_offset = 3.2\n)\n\n\n\n\nFigure 1: The combined results from the Saelens et al. (2019)."
+    "text": "Example\nThe following figure (Figure 1) illustrates the rich and comprehensive visualisations possible with {funkyheatmap}, showcasing its capacity to intuitively represent mixed data types in a single heatmap. The heatmap incorporates different geometries, categorical groupings, and colour palettes, providing a clear, informative, and aesthetically pleasing representation of the data.\n\nlibrary(funkyheatmap)\n\nfunky_heatmap(\n  data = dynbenchmark_data$data,\n  column_info = dynbenchmark_data$column_info,\n  column_groups = dynbenchmark_data$column_groups,\n  row_info = dynbenchmark_data$row_info,\n  row_groups = dynbenchmark_data$row_groups,\n  palettes = dynbenchmark_data$palettes,\n  col_annot_offset = 3.2\n)\n\n\n\n\nFigure 1: An example of a {funkyheatmap} visualisation using data from a benchmarking study of trajectory inference methods (Saelens et al. 2019)."
   },
   {
     "objectID": "index.html",
