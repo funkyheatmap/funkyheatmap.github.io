@@ -10,6 +10,8 @@ website:
       - features.qmd
       - text: Example
         href: examples/minimal/index.qmd
+      - text: Paper
+        href: paper/index.qmd
 
 format:
   html:
