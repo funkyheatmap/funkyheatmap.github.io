@@ -21,11 +21,32 @@
     "text": "funkyheatmap-js in JavaScript\n\nviewof color_by_rank = Inputs.toggle({label: \"Color by rank\"})\nviewof scale_column = Inputs.toggle({label: \"Minmax column\"})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunkyheatmap(\n  funky_heatmap_args.data,\n  // TODO: remove columns, since this information is available in column info\n  funky_heatmap_args.columns,\n  funky_heatmap_args.column_info,\n  funky_heatmap_args.column_groups,\n  // TODO: uncomment row_info and row_groups\n  // funky_heatmap_args.row_info,\n  // funky_heatmap_args.row_groups,\n  funky_heatmap_args.palettes,\n  // TODO: align the parameters below with R\n  funky_heatmap_args.expand, \n  funky_heatmap_args.col_annot_offset,\n  funky_heatmap_args.add_abc,\n  scale_column,\n  {\n    fontSize: 14,\n    rowHeight: 26,\n    rootStyle: 'max-width: none',\n    colorByRank: color_by_rank,\n    theme: {\n        oddRowBackground: 'var(--bs-body-bg)',\n        evenRowBackground: 'var(--bs-button-hover)',\n        textColor: 'var(--bs-body-color)',\n        strokeColor: 'var(--bs-body-color)',\n        headerColor: 'var(--bs-white)',\n        hoverColor: 'var(--bs-body-color)'\n    }\n  }\n);\n\n\n\n\n\n\n\nfunkyheatmap = (await require('d3@7').then(d3 =&gt; {\n  window.d3 = d3;\n  window._ = _;\n  return import('https://unpkg.com/funkyheatmap-js@0.1.8');\n})).default;"
   },
   {
-    "objectID": "examples/minimal/index.html#funkyheatmap-py-in-python",
-    "href": "examples/minimal/index.html#funkyheatmap-py-in-python",
+    "objectID": "examples/minimal/index.html#funkyheatmappy-in-python",
+    "href": "examples/minimal/index.html#funkyheatmappy-in-python",
     "title": "Minimal reproducible example",
-    "section": "funkyheatmap-py in Python",
-    "text": "funkyheatmap-py in Python\n\n# TODO: remove workaround\ncolumn_info.index = column_info[\"id\"]\ncolumn_info[\"name\"] = [ \"\" if not isinstance(name, str) else name for name in column_info[\"name\"] ]\nrow_info.index = row_info[\"id\"]\n\n# TODO: rename function to `funky_heatmap()`\nfunkyheatmap(\n  data=data,\n  column_info=column_info,\n  column_groups=column_groups,\n  row_info=row_info,\n  row_groups=row_groups,\n  palettes=palettes,\n)\n\n/home/runner/work/funkyheatmap.github.io/funkyheatmap.github.io/renv/python/virtualenvs/renv-python-3.11/lib/python3.11/site-packages/funkyheatmappy/calculate_row_positions.py:11: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  row_pos[\"do_spacing\"].iloc[0] = False"
+    "section": "funkyheatmappy in Python",
+    "text": "funkyheatmappy in Python\n\n# TODO: remove workaround\ncolumn_info.index = column_info[\"id\"]\ncolumn_info[\"name\"] = [ \"\" if not isinstance(name, str) else name for name in column_info[\"name\"] ]\nrow_info.index = row_info[\"id\"]\n\n# TODO: rename function to `funky_heatmap()`\nfunkyheatmap(\n  data=data,\n  column_info=column_info,\n  column_groups=column_groups,\n  row_info=row_info,\n  row_groups=row_groups,\n  palettes=palettes,\n)\n\n/home/runner/work/funkyheatmap.github.io/funkyheatmap.github.io/renv/python/virtualenvs/renv-python-3.11/lib/python3.11/site-packages/funkyheatmappy/calculate_row_positions.py:11: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  row_pos[\"do_spacing\"].iloc[0] = False"
+  },
+  {
+    "objectID": "paper/index.html",
+    "href": "paper/index.html",
+    "title": "funkyheatmap: Visualize benchmarking results",
+    "section": "",
+    "text": "{funkyheatmap} is an innovative R package designed to create publication-ready visualisations of data frames that encompass both numerical and non-numerical data. The package offers a simple user interface, only requiring a user to provide the data frame itself as input to generate a visualisation, but also allows users to fine-tune the visualisations by specifying row- and column-specific parameters.\nWith its ease of use and yet great customizability, {funkyheatmap} is highly suitable for exploring summarised results in a research context. While it has been used extensively to visualise benchmarking results in single-cell omics (Saelens et al. 2019; Luecken et al. 2021, 2023; Mereu et al. 2020; Pratapa et al. 2019; Yan and Sun 2022; Sang-aram et al. 2023), its applicability extends to use-cases beyond this particular domain."
+  },
+  {
+    "objectID": "paper/index.html#use-cases",
+    "href": "paper/index.html#use-cases",
+    "title": "funkyheatmap: Visualize benchmarking results",
+    "section": "Use Cases",
+    "text": "Use Cases\nFunkyheatmap has been successfully used in several benchmarking papers, including Saelens et al. (2019) and Luecken et al. (2022), demonstrating its effectiveness and utility in the research community. The package is particularly valuable for exploratory data analysis and for presenting summarized results in a visually appealing and informative manner. (Saelens et al. 2019; Luecken et al. 2021, 2023; Mereu et al. 2020; Pratapa et al. 2019; Yan and Sun 2022; Sang-aram et al. 2023) also OpenProblems"
+  },
+  {
+    "objectID": "paper/index.html#work-in-progress",
+    "href": "paper/index.html#work-in-progress",
+    "title": "funkyheatmap: Visualize benchmarking results",
+    "section": "Work in progress",
+    "text": "Work in progress\nIn order to provide a user-friendly experience for python-based workflows, we reimplemented the {funkyheatmap} package in python, relying on the ubiquitous matplotlib library. To guarantee feature parity between the different {funkyheatmap} implementations, test data is shared between the implementation tests, ensuring that the resulting plots look identical. In order to use {funkyheatmap} to disseminate results online, a javascript port of the package was made. This version provides some extra functionality in the form of a limited graphical user interface, allowing the user to hover over the data points to find exact values, and to filter and select certain rows and columns."
   },
   {
     "objectID": "index.html",
