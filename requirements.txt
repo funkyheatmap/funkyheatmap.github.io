@@ -1,7 +1,7 @@
 contourpy==1.0.7
 cycler==0.11.0
 fonttools==4.39.4
-funkyheatmappy @ git+https://github.com/funkyheatmap/funkyheatmappy@4bc9b217794fa064c23644ad510be144e57052f7
+funkyheatmappy @ git+https://github.com/funkyheatmap/funkyheatmappy.git@9c622ffd8a9a9344f1ad6cbf85007afcd2944d5a
 kiwisolver==1.4.4
 matplotlib==3.7.1
 numpy==1.24.3

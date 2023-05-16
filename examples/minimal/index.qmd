@@ -142,7 +142,6 @@ row_info.index = row_info["id"]
 ```
 
 ```{python}
-#| 
 funkyheatmap(
   data=data,
   column_info=column_info,
