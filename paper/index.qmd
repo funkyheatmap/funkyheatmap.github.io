@@ -106,9 +106,10 @@ JOSS welcomes submissions from broadly diverse research areas. For this reason, 
 # Summary
 <!-- A summary describing the high-level functionality and purpose of the software for a diverse, non-specialist audience. -->
 
-`{funkyheatmap}` is an innovative R package designed to create publication-ready visualisations of data frames that encompass both numerical and non-numerical data. The package offers a simple user interface, only requiring a user to provide the data frame itself as input to generate a visualisation, but also allows users to fine-tune the visualisations by specifying row- and column-specific parameters. 
+`{funkyheatmap}` is an innovative R package designed to create publication-ready visualisations of data frames containing a mix of numerical and non-numerical data. Its user-friendly interface makes it easy to generate a visualisation simply by providing the data frame. At the same time, `{funkyheatmap}` also offers flexibility for advanced users to refine their visualisations through row- and column-specific parameters.
 
-With its ease of use and yet great customizability, `{funkyheatmap}` is highly suitable for exploring summarised results in a research context. While it has been used extensively to visualise benchmarking results in single-cell omics [@comparisonsinglecell_saelens2019; @benchmarkingatlaslevel_luecken2020; @benchmarkingintegrationmethods_yan2022; @spotlessreproduciblepipeline_sangaram2023; @definingbenchmarkingopen_luecken2023], its applicability extends to use-cases beyond this particular domain.
+The package's simplicity and customizability make it an ideal tool for exploring summarised results in a research setting.
+While it has been used extensively to visualise benchmarking results in single-cell omics [@comparisonsinglecell_saelens2019; @benchmarkingatlaslevel_luecken2020; @benchmarkingintegrationmethods_yan2022; @spotlessreproduciblepipeline_sangaram2023; @definingbenchmarkingopen_luecken2023], it's designed to be versatile and applicable to a wide range of other domains.
 
 
 # Statement of need
@@ -118,18 +119,23 @@ Data visualisation is an essential part of data analysis by revealing patterns, 
 
 However, these visualisation tools require intricate scripts when visualising data frames with semantically mixed data types, such as textual, categorical, numerical and ratio data. Such data frames, as typically produced by benchmarking studies, require a combination of these heatmaps, dot plots, bar charts, pie charts and images to visualise results comprehensively and correctly. `{funkyheatmap}` addresses this limitation by offering a comprehensive and user-friendly solution for visualising mixed data types in data frames.
 
-The first funky heatmaps were published in @comparisonsinglecell_saelens2019 and @benchmarkingatlaslevel_luecken2020. Since the source code was not yet available as a standalone R package, several publications borrowed the `{funkyheatmap}`'s design concepts to produce a visualisations [@benchmarkingsinglecell_mereu2020; @benchmarkingalgorithmsgene_pratapa2019], thus underlining the need for a reusable package for generating funky heatmaps. Since publishing `{funkyheatmap}` on CRAN, `{funkyheatmap}` has been used in several other benchmarking studies to visualise the end-results [@benchmarkingintegrationmethods_yan2022; @spotlessreproduciblepipeline_sangaram2023; @definingbenchmarkingopen_luecken2023], demonstrating its effectiveness and utility in the research community.
+The utility of `{funkyheatmap}` was first demonstrated in @comparisonsinglecell_saelens2019 and @benchmarkingatlaslevel_luecken2020, where the unique design concept of funky heatmaps was employed. Since the source code was not available as a standalone R package at that time, several publications adapted the `{funkyheatmap}` design concepts for their visualisations [@benchmarkingsinglecell_mereu2020; @benchmarkingalgorithmsgene_pratapa2019], thus underlining the need for a reusable package for generating funky heatmaps. Since publishing `{funkyheatmap}` on CRAN, `{funkyheatmap}` has been used in several other benchmarking studies to visualise the end-results [@benchmarkingintegrationmethods_yan2022; @spotlessreproduciblepipeline_sangaram2023; @definingbenchmarkingopen_luecken2023], demonstrating its effectiveness and utility in the research community.
 
 
 # Results
 
-In order to facilitate the visualisation process, `{funkyheatmap}` provides many features to customise the resulting plot on different levels.
+The `{funkyheatmap}` package offers many features designed to customise and enhance the data visualisation process at multiple levels.
 
-Different **geometries** are supported depending on the data type of each of the columns ([@tbl-geoms]). For instance, numerical data can best be represented by a funkyrect or bar geom, measurement data by labelled rectangle geom, categorical data by a text or image geom, and proportional data a pie-chart geom.
+The package supports various **geometries** to accurately represent different data types in each column ([@tbl-geoms]). For instance, numerical data can be represented effectively using a funkyrect or bar geom, while measurement data can be displayed using a labelled rectangle geom. Categorical data can be visualised using a text or image geom, and proportional data can be represented using a pie-chart geom.
+
+
+**Categorical grouping** of rows and columns is supported to separate semantically related rows (e.g. methods) and columns (e.g. metrics and features). It is possible to assign a hierarchical index and different colour palettes to the columns, making these semantic groups more explicit.
+
 
 ```{r echo=FALSE}
 #| label: tbl-geoms
-#| tbl-cap: Recommended geoms
+#| tbl-cap: "Recommended geometries in `{funkyheatmap}` for different data types. The table presents the suggested visualization methods (geoms) based on the data type of the columns. These recommendations provide a starting point for users to select the most appropriate visual representation for their specific data."
+
 df <- tibble::tribble(
   ~"Data type", ~Example, ~"Recommended geom",
   "Numerical data", "Scores from 0 to 1", "funkyrect",
@@ -142,16 +148,14 @@ knitr::kable(df)
 ```
 
 
-**Categorical grouping** of rows and columns is supported to separate semantically related rows (e.g. methods) and columns (e.g. metrics and features). It is possible to assign a hierarchical index and different colour palettes to the columns, making these semantic groups more explicit.
-
-
 ## Example
 
-@fig-dynbenchmark] shows ....
+The following figure ([@fig-dynbenchmark]) illustrates the rich and comprehensive visualisations possible with `{funkyheatmap}`, showcasing its capacity to intuitively represent mixed data types in a single heatmap. The heatmap incorporates different geometries, categorical groupings, and colour palettes, providing a clear, informative, and aesthetically pleasing representation of the data.
 
 ```{r fig.width=22.1, fig.height=18.14, warning=FALSE}
 #| label: fig-dynbenchmark
-#| fig-cap: The combined results from the @comparisonsinglecell_saelens2019.
+#| fig-cap: "An example of a `{funkyheatmap}` visualisation using data from a benchmarking study of trajectory inference methods [@comparisonsinglecell_saelens2019]."
+
 library(funkyheatmap)
 
 funky_heatmap(
@@ -167,14 +171,21 @@ funky_heatmap(
 
 
 # Implementation
-The visualisation package is implemented in R, using the underlying ggplot2 library [@ggplot2_wickham2009]. The declarative nature of the ggplot2 framework allows easy extension of `{funkyheatmap}`, making it relatively straightforward to add new geometries to the package. We also provide an extensive set of documentation resources to get started working with `{funkyheatmap}`. Besides function-level documentation, detailing the usage of public functions and the possible function arguments, we also provide detailed step-by-step vignettes showcasing the customizability of `{funkyheatmap}`.The testthat testing framework is used in combination with continuous integration to ensure software quality in the long run.
 
-In order to provide a user-friendly experience for Python-based workflows, we implemented the Python package `funkyheatmappy` which relies on the ubiquitous matplotlib library [@matplotlib2dgraphics_hunter2007]. To guarantee feature parity between the different `{funkyheatmap}` implementations, test data is shared between the implementation tests, ensuring that the resulting plots look identical.
+The `{funkyheatmap}` visualisation tool is developed in the R programming language, leveraging the robust and flexible capabilities of the ggplot2 library [@ggplot2_wickham2009]. The package's design benefits from ggplot2's declarative nature, which simplifies the addition of new geometries to `{funkyheatmap}`.
 
-To allow for interactive exploration of the results, a JavaScript port called `funkyheatmapjs` is being developed. This version provides some extra functionality, allowing you to sort the rows by clicking on a column and to show a label on hover.
+For user convenience and understanding, we have put together comprehensive documentation resources. These include function-level documentations, which explain how to use public functions, the meaning of function arguments, and their possible values. We also offer detailed, step-by-step vignettes to demonstrate the range of customizations that `{funkyheatmap}` offers.
+
+To ensure the continued quality and reliability of the package, we use the testthat framework for software testing, coupled with continuous integration practices. This combination provides us with a reliable system to catch any potential issues early and maintain the high quality of the software.
+
+Recognizing the wide usage of Python in data analysis, we have also developed a Python version of the package, `funkyheatmappy`. This package utilises the widely used matplotlib library [@matplotlib2dgraphics_hunter2007] for its operations. To maintain consistency between the R and Python versions, we use shared test data across the implementations. This practice ensures that the visualisations produced by both versions are identical.
+
+Lastly, to cater to the increasing demand for interactive data exploration, we are developing `funkyheatmapjs`, a JavaScript version of the tool. This interactive version will provide additional features such as sorting rows by clicking on a column and displaying labels on hover. These developments reinforce our commitment to continuous improvement and meeting the diverse needs of our user base.
 
 # Conclusion
-`{funkyheatmap}` is a powerful and versatile addition to the data visualisation toolkit, providing a comprehensive solution for visualising data frames with mixed data types. Its user-friendly interface and extensive customization options make it an essential tool for exploratory data analysis and for presenting summarised results in benchmarking papers. We encourage the research community to adopt and contribute to the development of this open-source package, further enhancing its capabilities and applications.
+The `{funkyheatmap}` package fills an important gap in the data visualization landscape, addressing the need for visualising semantically mixed data types in an intuitive and comprehensive manner. With its user-friendly interface and extensive customization options, it provides a solution that is as accessible to novices as it is to experienced data scientists. It has already demonstrated its value across numerous benchmarking studies in the single-cell omics field, yet its potential applications extend well beyond this domain.
+
+The future is promising for `{funkyheatmap}`, with plans for continued enhancements and expansion of its capabilities. The Python package `funkyheatmappy` offers accessibility to Python-based workflows, while the ongoing development of the JavaScript port `funkyheatmapjs`, promises interactive exploration capabilities.
 
 
 # Acknowledgements
