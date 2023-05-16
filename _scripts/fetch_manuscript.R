@@ -49,7 +49,7 @@ content$text %>%
   # add spaces before citations
   # str_replace_all("([^ ])(\\[@[^\\]]*\\])", "\\1 \\2") %>% 
   # add newlines before sections
-  str_replace_all("^#", "\n#") %>%
+  str_replace_all("^(#+ )", "\n\\1") %>%
   write_lines(dest_paper)
 
 
