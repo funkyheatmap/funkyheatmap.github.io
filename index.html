@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>funkyheatmap</title>
+<title>funkyheatmap - funkyheatmap: Visualising data frames</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -88,6 +141,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./features.html" rel="" target="">
  <span class="menu-text">Features</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./examples/minimal/index.html" rel="" target="">
+ <span class="menu-text">Example</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -100,14 +157,23 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#more-information" id="toc-more-information" class="nav-link" data-scroll-target="#more-information">More information</a></li>
+  <li><a href="#works-with-funkyheatmap-like-visualisations" id="toc-works-with-funkyheatmap-like-visualisations" class="nav-link" data-scroll-target="#works-with-funkyheatmap-like-visualisations">Works with funkyheatmap(-like) visualisations</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">funkyheatmap</h1>
+<h1 class="title">funkyheatmap: Visualising data frames</h1>
 </div>
 
 
@@ -122,12 +188,62 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<p><code>{funkyheatmap}</code> is a way for creating customisable heatmaps.</p>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>You can install funkyheatmap like so:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"funkyheatmap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also download funkyheatmap as a <a href="http://funkyheatmap.dynverse.org/articles/executable.html">standalone Bash executable</a>.</p>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>…</p>
+</section>
+<section id="more-information" class="level2">
+<h2 class="anchored" data-anchor-id="more-information">More information</h2>
+<ul>
+<li><p>The <a href="https://funkyheatmap.dynverse.org/reference/index.html">reference documentation</a> on <code>funky_heatmap()</code> details the exact formats of each annotation object that you can pass to it.</p></li>
+<li><p>Check out the vignette <a href="https://funkyheatmap.dynverse.org/articles/mtcars.html"><code>vignette("mtcars", "funkyheatmap")</code></a> for more information on how to customize this visualisation.</p></li>
+<li><p>In <a href="https://funkyheatmap.dynverse.org/articles/dynbenchmark.html"><code>vignette("dynbenchmark", "funkyheatmap")</code></a> we use funkyheatmap to regenerate the figures from Saelens et al.&nbsp;(2019) <a href="https://doi.org/10.1038/s41587-019-0071-9">doi:10.1038/s41587-019-0071-9</a>.</p></li>
+<li><p>We used <a href="https://viash.io">Viash</a> to wrap the <code>funkyheatmap::funky_heatmap()</code> function as a <a href="https://funkyheatmap.dynverse.org/articles/executable.html">standalone executable</a>.</p></li>
+</ul>
+</section>
+<section id="works-with-funkyheatmap-like-visualisations" class="level2">
+<h2 class="anchored" data-anchor-id="works-with-funkyheatmap-like-visualisations">Works with funkyheatmap(-like) visualisations</h2>
+<ul>
+<li><span class="citation" data-cites="comparisonsinglecell_saelens2019">Saelens et al. (<a href="#ref-comparisonsinglecell_saelens2019" role="doc-biblioref">2019</a>)</span></li>
+<li><span class="citation" data-cites="benchmarkingatlaslevel_luecken2020">Luecken et al. (<a href="#ref-benchmarkingatlaslevel_luecken2020" role="doc-biblioref">2021</a>)</span></li>
+<li><span class="citation" data-cites="benchmarkingsinglecell_mereu2020">Mereu et al. (<a href="#ref-benchmarkingsinglecell_mereu2020" role="doc-biblioref">2020</a>)</span></li>
+<li><span class="citation" data-cites="benchmarkingalgorithmsgene_pratapa2019">Pratapa et al. (<a href="#ref-benchmarkingalgorithmsgene_pratapa2019" role="doc-biblioref">2019</a>)</span></li>
+<li><span class="citation" data-cites="benchmarkingintegrationmethods_yan2022">Yan and Sun (<a href="#ref-benchmarkingintegrationmethods_yan2022" role="doc-biblioref">2022</a>)</span></li>
+<li><span class="citation" data-cites="spotlessreproduciblepipeline_sangaram2023">Sang-aram et al. (<a href="#ref-spotlessreproduciblepipeline_sangaram2023" role="doc-biblioref">2023</a>)</span></li>
+</ul>
+<p>Create a PR to include your work in this list!</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-benchmarkingatlaslevel_luecken2020" class="csl-entry" role="listitem">
+Luecken, Malte D., M. Büttner, K. Chaichoompu, A. Danese, M. Interlandi, M. F. Mueller, D. C. Strobl, et al. 2021. <span>“Benchmarking Atlas-Level Data Integration in Single-Cell Genomics.”</span> <em>Nat Methods</em> 19 (1): 41–50. <a href="https://doi.org/10.1038/s41592-021-01336-8">https://doi.org/10.1038/s41592-021-01336-8</a>.
+</div>
+<div id="ref-benchmarkingsinglecell_mereu2020" class="csl-entry" role="listitem">
+Mereu, Elisabetta, Atefeh Lafzi, Catia Moutinho, Christoph Ziegenhain, Davis J. McCarthy, Adrián Álvarez-Varela, Eduard Batlle, et al. 2020. <span>“Benchmarking Single-Cell <span>RNA</span>-Sequencing Protocols for Cell Atlas Projects.”</span> <em>Nat Biotechnol</em> 38 (6): 747–55. <a href="https://doi.org/10.1038/s41587-020-0469-4">https://doi.org/10.1038/s41587-020-0469-4</a>.
+</div>
+<div id="ref-benchmarkingalgorithmsgene_pratapa2019" class="csl-entry" role="listitem">
+Pratapa, Aditya, Amogh P. Jalihal, Jeffrey N. Law, Aditya Bharadwaj, and T. M. Murali. 2019. <span>“Benchmarking Algorithms for Gene Regulatory Network Inference from Single-Cell Transcriptomic Data,”</span> May. <a href="https://doi.org/10.1101/642926">https://doi.org/10.1101/642926</a>.
+</div>
+<div id="ref-comparisonsinglecell_saelens2019" class="csl-entry" role="listitem">
+Saelens, Wouter, Robrecht Cannoodt, Helena Todorov, and Yvan Saeys. 2019. <span>“A Comparison of Single-Cell Trajectory Inference Methods.”</span> <em>Nat Biotechnol</em> 37 (5): 547–54. <a href="https://doi.org/10.1038/s41587-019-0071-9">https://doi.org/10.1038/s41587-019-0071-9</a>.
+</div>
+<div id="ref-spotlessreproduciblepipeline_sangaram2023" class="csl-entry" role="listitem">
+Sang-aram, Chananchida, Robin Browaeys, Ruth Seurinck, and Yvan Saeys. 2023. <span>“Spotless: A Reproducible Pipeline for Benchmarking Cell Type Deconvolution in Spatial Transcriptomics,”</span> March. <a href="https://doi.org/10.1101/2023.03.22.533802">https://doi.org/10.1101/2023.03.22.533802</a>.
+</div>
+<div id="ref-benchmarkingintegrationmethods_yan2022" class="csl-entry" role="listitem">
+Yan, Lulu, and Xiaoqiang Sun. 2022. <span>“Benchmarking and Integration of Methods for Deconvoluting Spatial Transcriptomic Data.”</span> Edited by Janet Kelso. <em>Bioinformatics</em> 39 (1). <a href="https://doi.org/10.1093/bioinformatics/btac805">https://doi.org/10.1093/bioinformatics/btac805</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

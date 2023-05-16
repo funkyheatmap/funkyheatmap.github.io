@@ -1,10 +1,66 @@
 [
   {
+    "objectID": "examples/minimal/index.html",
+    "href": "examples/minimal/index.html",
+    "title": "Minimal reproducible example",
+    "section": "",
+    "text": "g &lt;- funkyheatmap::funky_heatmap(\n  data = data,\n  column_info = column_info,\n  column_groups = column_groups,\n  row_info = row_info,\n  row_groups = row_groups,\n  palettes = palettes\n)\n\nℹ Column info did not contain a column called 'legend', generating options based on the 'geom' column.\n\n\n\ng"
+  },
+  {
+    "objectID": "examples/minimal/index.html#funkyheatmap-in-r",
+    "href": "examples/minimal/index.html#funkyheatmap-in-r",
+    "title": "Minimal reproducible example",
+    "section": "",
+    "text": "g &lt;- funkyheatmap::funky_heatmap(\n  data = data,\n  column_info = column_info,\n  column_groups = column_groups,\n  row_info = row_info,\n  row_groups = row_groups,\n  palettes = palettes\n)\n\nℹ Column info did not contain a column called 'legend', generating options based on the 'geom' column.\n\n\n\ng"
+  },
+  {
+    "objectID": "examples/minimal/index.html#funkyheatmap-js-in-javascript",
+    "href": "examples/minimal/index.html#funkyheatmap-js-in-javascript",
+    "title": "Minimal reproducible example",
+    "section": "funkyheatmap-js in JavaScript",
+    "text": "funkyheatmap-js in JavaScript\n\nviewof color_by_rank = Inputs.toggle({label: \"Color by rank\"})\nviewof scale_column = Inputs.toggle({label: \"Minmax column\"})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunkyheatmap(\n  funky_heatmap_args.data,\n  // TODO: remove columns, since this information is available in column info\n  funky_heatmap_args.columns,\n  funky_heatmap_args.column_info,\n  funky_heatmap_args.column_groups,\n  // TODO: uncomment row_info and row_groups\n  // funky_heatmap_args.row_info,\n  // funky_heatmap_args.row_groups,\n  funky_heatmap_args.palettes,\n  // TODO: align the parameters below with R\n  funky_heatmap_args.expand, \n  funky_heatmap_args.col_annot_offset,\n  funky_heatmap_args.add_abc,\n  scale_column,\n  {\n    fontSize: 14,\n    rowHeight: 26,\n    rootStyle: 'max-width: none',\n    colorByRank: color_by_rank,\n    theme: {\n        oddRowBackground: 'var(--bs-body-bg)',\n        evenRowBackground: 'var(--bs-button-hover)',\n        textColor: 'var(--bs-body-color)',\n        strokeColor: 'var(--bs-body-color)',\n        headerColor: 'var(--bs-white)',\n        hoverColor: 'var(--bs-body-color)'\n    }\n  }\n);\n\n\n\n\n\n\n\nfunkyheatmap = (await require('d3@7').then(d3 =&gt; {\n  window.d3 = d3;\n  window._ = _;\n  return import('https://unpkg.com/funkyheatmap-js@0.1.8');\n})).default;"
+  },
+  {
+    "objectID": "examples/minimal/index.html#funkyheatmap-py-in-python",
+    "href": "examples/minimal/index.html#funkyheatmap-py-in-python",
+    "title": "Minimal reproducible example",
+    "section": "funkyheatmap-py in Python",
+    "text": "funkyheatmap-py in Python\n\n# TODO: remove workaround\ncolumn_info.index = column_info[\"id\"]\ncolumn_info[\"name\"] = [ \"\" if not isinstance(name, str) else name for name in column_info[\"name\"] ]\nrow_info.index = row_info[\"id\"]\n\n# TODO: rename function to `funky_heatmap()`\nfunkyheatmap(\n  data=data,\n  column_info=column_info,\n  column_groups=column_groups,\n  row_info=row_info,\n  row_groups=row_groups,\n  palettes=palettes,\n)\n\n/home/runner/work/funkyheatmap.github.io/funkyheatmap.github.io/renv/python/virtualenvs/renv-python-3.11/lib/python3.11/site-packages/funkyheatmappy/calculate_row_positions.py:11: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  row_pos[\"do_spacing\"].iloc[0] = False"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "funkyheatmap",
+    "title": "funkyheatmap: Visualising data frames",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "{funkyheatmap} is a way for creating customisable heatmaps."
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "Installation",
+    "text": "Installation\nYou can install funkyheatmap like so:\ninstall.packages(\"funkyheatmap\")\nYou can also download funkyheatmap as a standalone Bash executable."
+  },
+  {
+    "objectID": "index.html#example",
+    "href": "index.html#example",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "Example",
+    "text": "Example\n…"
+  },
+  {
+    "objectID": "index.html#more-information",
+    "href": "index.html#more-information",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "More information",
+    "text": "More information\n\nThe reference documentation on funky_heatmap() details the exact formats of each annotation object that you can pass to it.\nCheck out the vignette vignette(\"mtcars\", \"funkyheatmap\") for more information on how to customize this visualisation.\nIn vignette(\"dynbenchmark\", \"funkyheatmap\") we use funkyheatmap to regenerate the figures from Saelens et al. (2019) doi:10.1038/s41587-019-0071-9.\nWe used Viash to wrap the funkyheatmap::funky_heatmap() function as a standalone executable."
+  },
+  {
+    "objectID": "index.html#works-with-funkyheatmap-like-visualisations",
+    "href": "index.html#works-with-funkyheatmap-like-visualisations",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "Works with funkyheatmap(-like) visualisations",
+    "text": "Works with funkyheatmap(-like) visualisations\n\nSaelens et al. (2019)\nLuecken et al. (2021)\nMereu et al. (2020)\nPratapa et al. (2019)\nYan and Sun (2022)\nSang-aram et al. (2023)\n\nCreate a PR to include your work in this list!"
   },
   {
     "objectID": "features.html",
