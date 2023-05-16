@@ -121,7 +121,7 @@ funkyheatmap = (await require('d3@7').then(d3 => {
 ## funkyheatmap-py in Python
 
 ```{python}
-from funkypyheatmap import funkyheatmap
+from funkyheatmappy import funkyheatmap
 import pandas as pd
 import json
 
@@ -142,6 +142,7 @@ row_info.index = row_info["id"]
 ```
 
 ```{python}
+#| 
 funkyheatmap(
   data=data,
   column_info=column_info,
