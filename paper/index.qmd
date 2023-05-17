@@ -33,6 +33,7 @@ authors:
   orcid: 0000-0001-7744-8565
   affiliations:
     - ref: icb
+    - ref: tum-ma
 - name: Malte D. Luecken
   orcid: 0000-0001-7464-7921
   affiliations:
@@ -90,6 +91,11 @@ affiliations:
     department: Institute of Computational Biology, Department of Computational Health
     city: Munich
     country: Germany
+  - id: tum-ma
+    name: Technical University of Munich
+    department: Department of Mathematics, School of Computation, Information and Technology
+    city: Munich
+    country: Germany
 engine: knitr
 bibliography: library.bib
 ---
@@ -134,7 +140,7 @@ The package supports various **geometries** to accurately represent different da
 
 ```{r echo=FALSE}
 #| label: tbl-geoms
-#| tbl-cap: "Recommended geometries in `{funkyheatmap}` for different data types. The table presents the suggested visualization methods (geoms) based on the data type of the columns. These recommendations provide a starting point for users to select the most appropriate visual representation for their specific data."
+#| tbl-cap: "Recommended geometries in `{funkyheatmap}` for different data types. The table presents the suggested visualisation methods (geoms) based on the data type of the columns. These recommendations provide a starting point for users to select the most appropriate visual representation for their specific data."
 
 df <- tibble::tribble(
   ~"Data type", ~Example, ~"Recommended geom",
@@ -183,14 +189,14 @@ Recognizing the wide usage of Python in data analysis, we have also developed a 
 Lastly, to cater to the increasing demand for interactive data exploration, we are developing `funkyheatmapjs`, a JavaScript version of the tool. This interactive version will provide additional features such as sorting rows by clicking on a column and displaying labels on hover. These developments reinforce our commitment to continuous improvement and meeting the diverse needs of our user base.
 
 # Conclusion
-The `{funkyheatmap}` package fills an important gap in the data visualization landscape, addressing the need for visualising semantically mixed data types in an intuitive and comprehensive manner. With its user-friendly interface and extensive customization options, it provides a solution that is as accessible to novices as it is to experienced data scientists. It has already demonstrated its value across numerous benchmarking studies in the single-cell omics field, yet its potential applications extend well beyond this domain.
+The `{funkyheatmap}` package fills an important gap in the data visualisation landscape, addressing the need for visualising semantically mixed data types in an intuitive and comprehensive manner. With its user-friendly interface and extensive customization options, it provides a solution that is as accessible to novices as it is to experienced data scientists. It has already demonstrated its value across numerous benchmarking studies in the single-cell omics field, yet its potential applications extend well beyond this domain.
 
 The future is promising for `{funkyheatmap}`, with plans for continued enhancements and expansion of its capabilities. The Python package `funkyheatmappy` offers accessibility to Python-based workflows, while the ongoing development of the JavaScript port `funkyheatmapjs`, promises interactive exploration capabilities.
 
 
 # Acknowledgements
 <!-- Acknowledgement of any financial support. -->
-
+The Bavarian Ministry of Science and the Arts in the framework of the Bavarian Research Association “ForInter” (Interaction of human brain cells).
 
 # References
 <!-- A list of key references, including to other software addressing related needs. Note that the references should include full names of venues, e.g., journals and conferences, not abbreviations only understood in the context of a specific discipline. -->
