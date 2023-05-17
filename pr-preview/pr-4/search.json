@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "examples/minimal/index.html",
+    "href": "examples/minimal/index.html",
+    "title": "Minimal reproducible example",
+    "section": "",
+    "text": "g &lt;- funkyheatmap::funky_heatmap(\n  data = data,\n  column_info = column_info,\n  column_groups = column_groups,\n  row_info = row_info,\n  row_groups = row_groups,\n  palettes = palettes\n)\n\nℹ Column info did not contain a column called 'legend', generating options based on the 'geom' column.\n\n\n\ng"
+  },
+  {
+    "objectID": "examples/minimal/index.html#funkyheatmap-in-r",
+    "href": "examples/minimal/index.html#funkyheatmap-in-r",
+    "title": "Minimal reproducible example",
+    "section": "",
+    "text": "g &lt;- funkyheatmap::funky_heatmap(\n  data = data,\n  column_info = column_info,\n  column_groups = column_groups,\n  row_info = row_info,\n  row_groups = row_groups,\n  palettes = palettes\n)\n\nℹ Column info did not contain a column called 'legend', generating options based on the 'geom' column.\n\n\n\ng"
+  },
+  {
+    "objectID": "examples/minimal/index.html#funkyheatmap-js-in-javascript",
+    "href": "examples/minimal/index.html#funkyheatmap-js-in-javascript",
+    "title": "Minimal reproducible example",
+    "section": "funkyheatmap-js in JavaScript",
+    "text": "funkyheatmap-js in JavaScript\n\nviewof color_by_rank = Inputs.toggle({label: \"Color by rank\"})\nviewof scale_column = Inputs.toggle({label: \"Minmax column\"})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunkyheatmap(\n  funky_heatmap_args.data,\n  // TODO: remove columns, since this information is available in column info\n  funky_heatmap_args.columns,\n  funky_heatmap_args.column_info,\n  funky_heatmap_args.column_groups,\n  // TODO: uncomment row_info and row_groups\n  // funky_heatmap_args.row_info,\n  // funky_heatmap_args.row_groups,\n  funky_heatmap_args.palettes,\n  // TODO: align the parameters below with R\n  funky_heatmap_args.expand, \n  funky_heatmap_args.col_annot_offset,\n  funky_heatmap_args.add_abc,\n  scale_column,\n  {\n    fontSize: 14,\n    rowHeight: 26,\n    rootStyle: 'max-width: none',\n    colorByRank: color_by_rank,\n    theme: {\n        oddRowBackground: 'var(--bs-body-bg)',\n        evenRowBackground: 'var(--bs-button-hover)',\n        textColor: 'var(--bs-body-color)',\n        strokeColor: 'var(--bs-body-color)',\n        headerColor: 'var(--bs-white)',\n        hoverColor: 'var(--bs-body-color)'\n    }\n  }\n);\n\n\n\n\n\n\n\nfunkyheatmap = (await require('d3@7').then(d3 =&gt; {\n  window.d3 = d3;\n  window._ = _;\n  return import('https://unpkg.com/funkyheatmap-js@0.1.8');\n})).default;"
+  },
+  {
+    "objectID": "examples/minimal/index.html#funkyheatmappy-in-python",
+    "href": "examples/minimal/index.html#funkyheatmappy-in-python",
+    "title": "Minimal reproducible example",
+    "section": "funkyheatmappy in Python",
+    "text": "funkyheatmappy in Python\n\n# TODO: remove workaround\ncolumn_info.index = column_info[\"id\"]\ncolumn_info[\"name\"] = [ \"\" if not isinstance(name, str) else name for name in column_info[\"name\"] ]\nrow_info.index = row_info[\"id\"]\n\n# TODO: rename function to `funky_heatmap()`\nfunkyheatmap(\n  data=data,\n  column_info=column_info,\n  column_groups=column_groups,\n  row_info=row_info,\n  row_groups=row_groups,\n  palettes=palettes,\n)\n\n/home/runner/work/funkyheatmap.github.io/funkyheatmap.github.io/renv/python/virtualenvs/renv-python-3.11/lib/python3.11/site-packages/funkyheatmappy/calculate_row_positions.py:11: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  row_pos[\"do_spacing\"].iloc[0] = False"
+  },
+  {
+    "objectID": "paper/index.html",
+    "href": "paper/index.html",
+    "title": "funkyheatmap: Visualising data frames with mixed data types",
+    "section": "",
+    "text": "*: Shared first authors, †: shared last authors."
+  },
+  {
+    "objectID": "paper/index.html#example",
+    "href": "paper/index.html#example",
+    "title": "funkyheatmap: Visualising data frames with mixed data types",
+    "section": "Example",
+    "text": "Example\nThe following figure (Figure 1) illustrates the rich and comprehensive visualisations possible with {funkyheatmap}, showcasing its capacity to intuitively represent mixed data types in a single heatmap. The heatmap incorporates different geometries, categorical groupings, and colour palettes, providing a clear, informative, and aesthetically pleasing representation of the data.\n\nlibrary(funkyheatmap)\n\nfunky_heatmap(\n  data = dynbenchmark_data$data,\n  column_info = dynbenchmark_data$column_info,\n  column_groups = dynbenchmark_data$column_groups,\n  row_info = dynbenchmark_data$row_info,\n  row_groups = dynbenchmark_data$row_groups,\n  palettes = dynbenchmark_data$palettes,\n  col_annot_offset = 3.2\n)\n\n\n\n\nFigure 1: An example of a {funkyheatmap} visualisation using data from a benchmarking study of trajectory inference methods (Saelens et al. 2019)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "",
+    "text": "{funkyheatmap} is a way for creating customisable heatmaps."
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "Installation",
+    "text": "Installation\nYou can install funkyheatmap like so:\ninstall.packages(\"funkyheatmap\")\nYou can also download funkyheatmap as a standalone Bash executable."
+  },
+  {
+    "objectID": "index.html#example",
+    "href": "index.html#example",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "Example",
+    "text": "Example\n…"
+  },
+  {
+    "objectID": "index.html#more-information",
+    "href": "index.html#more-information",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "More information",
+    "text": "More information\n\nThe reference documentation on funky_heatmap() details the exact formats of each annotation object that you can pass to it.\nCheck out the vignette vignette(\"mtcars\", \"funkyheatmap\") for more information on how to customize this visualisation.\nIn vignette(\"dynbenchmark\", \"funkyheatmap\") we use funkyheatmap to regenerate the figures from Saelens et al. (2019) doi:10.1038/s41587-019-0071-9.\nWe used Viash to wrap the funkyheatmap::funky_heatmap() function as a standalone executable."
+  },
+  {
+    "objectID": "index.html#works-with-funkyheatmap-like-visualisations",
+    "href": "index.html#works-with-funkyheatmap-like-visualisations",
+    "title": "funkyheatmap: Visualising data frames",
+    "section": "Works with funkyheatmap(-like) visualisations",
+    "text": "Works with funkyheatmap(-like) visualisations\n\nSaelens et al. (2019)\nLuecken et al. (2021)\nMereu et al. (2020)\nPratapa et al. (2019)\nYan and Sun (2022)\nSang-aram et al. (2023)\n\nCreate a PR to include your work in this list!"
+  },
+  {
+    "objectID": "features.html",
+    "href": "features.html",
+    "title": "Features",
+    "section": "",
+    "text": "This is a high-level overview of the features available in funkyheatmap. This section will be updated such that only a checkmark appears if all of the unit tests have been implemented and succeed.\nid\ndescription\nR\nPython\nJS\n\n\n\n\nData input\nAllows for input of a data frame with items by row and features in the columns.\n✓\n✓\n✓\n\n\nColumn info\nProvides customization of columns, including geom, group, palette, and more.\n✓\n✓\n✓\n\n\nRow info\nAllows for grouping and annotating rows.\n✓\n✓\n\n\n\nColumn groups\nAllows for grouping and annotating column groups.\n✓\n✓\n✓\n\n\nRow groups\nAllows for grouping and annotating row groups.\n✓\n✓\n\n\n\nPalettes\nSupports custom and standard color palettes for the heatmap.\n✓\n✓\n±\n\n\nGeom: funkyrect\nSupports ‘funkyrect’ geometry.\n✓\n✓\n✓\n\n\nGeom: circle\nSupports ‘circle’ geometry.\n✓\n✓\n✓\n\n\nGeom: rect\nSupports ‘rect’ geometry.\n✓\n✓\n\n\n\nGeom: bar\nSupports ‘bar’ geometry.\n✓\n✓\n✓\n\n\nGeom: pie\nSupports ‘pie’ geometry.\n✓\n✓\n\n\n\nGeom: text\nSupports ‘text’ geometry.\n✓\n✓\n✓\n\n\nGeom: image\nSupports ‘image’ geometry.\n✓\n✓\n\n\n\nNumerical transformations\nProvides transformation capabilities for numerical columns.\n✓\n✓\n✓\n\n\nPositioning options\nOptions to control the positioning of various elements in the plot.\n✓\n✓\n✓\n\n\nSubfigure labels\nEnables adding subfigure labels to different column groups.\n✓\n✓\n✓\n\n\nRemoved entries\nSupports removing specified entries from rows and replacing them with a label.\n✓\n✓\n\n\n\nLabel on hover\nAllow hovering over a result to see a label\n\n\n✓"
+  },
+  {
+    "objectID": "features.html#unit-tests",
+    "href": "features.html#unit-tests",
+    "title": "Features",
+    "section": "Unit tests",
+    "text": "Unit tests\nThis table will be used to check whether each of these tests were implemented in each of the different funkyheatmap implementations.\n\n\n\n\n\n\n\n\n\n\nname\nfeature_id\ndescription\n\n\n\n\nTest data input validity\nData input\nTest whether the function handles valid data frame input correctly.\n\n\nTest data input error handling\nData input\nTest the function’s error handling when provided with an invalid data frame input.\n\n\nTest column info validity\nColumn info\nTest if the function processes valid column information correctly.\n\n\nTest column info error handling\nColumn info\nTest the function’s error handling when provided with invalid column information.\n\n\nTest row info validity\nRow info\nTest if the function processes valid row information correctly.\n\n\nTest row info error handling\nRow info\nTest the function’s error handling when provided with invalid row information.\n\n\nTest column groups validity\nColumn groups\nTest if the function processes valid column groups correctly.\n\n\nTest column groups error handling\nColumn groups\nTest the function’s error handling when provided with invalid column groups.\n\n\nTest row groups validity\nRow groups\nTest if the function processes valid row groups correctly.\n\n\nTest row groups error handling\nRow groups\nTest the function’s error handling when provided with invalid row groups.\n\n\nTest palette custom validity\nPalettes\nTest if the function handles valid custom palettes correctly.\n\n\nTest palette standard validity\nPalettes\nTest if the function handles valid standard palettes correctly.\n\n\nTest palette error handling\nPalettes\nTest the function’s error handling when provided with invalid palettes.\n\n\nTest geom funkyrect validity\nGeom: funkyrect\nTest if the function correctly renders ‘funkyrect’ geometry.\n\n\nTest geom circle validity\nGeom: circle\nTest if the function correctly renders ‘circle’ geometry.\n\n\nTest geom rect validity\nGeom: rect\nTest if the function correctly renders ‘rect’ geometry.\n\n\nTest geom bar validity\nGeom: bar\nTest if the function correctly renders ‘bar’ geometry.\n\n\nTest geom pie validity\nGeom: pie\nTest if the function correctly renders ‘pie’ geometry.\n\n\nTest geom text validity\nGeom: text\nTest if the function correctly renders ‘text’ geometry.\n\n\nTest geom image validity\nGeom: image\nTest if the function correctly renders ‘image’ geometry.\n\n\nTest numerical transformations\nNumerical transformations\nTest if the function applies numerical transformations correctly.\n\n\nTest positioning options\nPositioning options\nTest if the function handles positioning options like hjust, vjust, size, label correctly.\n\n\nTest subfigure labels\nSubfigure labels\nTest if the function correctly adds subfigure labels to different column groups.\n\n\nTest removed entries\nRemoved entries\nTest if the function correctly removes specified entries from rows and replaces them with a label.\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nStill need to implement each of these unit tests. The labels might need to be renamed accordingly."
+  }
+]

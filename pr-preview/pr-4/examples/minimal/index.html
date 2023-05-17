@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>{funkyheatmap} - Minimal reproducible example</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script type="ojs-define">
+{"contents":[{"name":"funky_heatmap_args","value":{"data":{"id":["A","B","C","D","E","F","G","H","I","J","K"],"text1":["propA","propB","propC","propD","propE","propF","propG","propH","propI","propJ","propK"],"text2":["property of A","property of B","property of C","property of D","property of E","property of F","property of G","property of H","property of I","property of J","property of K"],"numerical1":[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1],"numerical2":[10,11,12,13,14,15,16,17,18,19,20],"numerical3":[0,0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1],"numerical1_str":["0","0.1","0.2","0.3","0.4","0.5","0.6","0.7","0.8","0.9","1"],"numerical2_str":["10","11","12","13","14","15","16","17","18","19","20"],"numerical3_str":["0","0.01","0.02","0.03","0.04","0.05","0.06","0.07","0.08","0.09","0.1"],"categories1":[[1,0,0],[0.9,0.0333,0.0667],[0.8,0.0667,0.1333],[0.7,0.1,0.2],[0.6,0.1333,0.2667],[0.5,0.1667,0.3333],[0.4,0.2,0.4],[0.3,0.2333,0.4667],[0.2,0.2667,0.5333],[0.1,0.3,0.6],[0,0.3333,0.6667]],"categories2":[[10,20,30],[11,22,33],[12,24,36],[13,26,39],[14,28,42],[15,30,45],[16,32,48],[17,34,51],[18,36,54],[19,38,57],[20,40,60]],"categories3":[[0.0001,0,0],[0.0101,0.0051,0.0033],[0.0201,0.0104,0.0067],[0.0301,0.0159,0.01],[0.0401,0.0216,0.0134],[0.0501,0.0275,0.0168],[0.0601,0.0336,0.0202],[0.0701,0.0399,0.0237],[0.0801,0.0464,0.0272],[0.0901,0.0531,0.0307],[0.1001,0.06,0.0343]]},"column_info":{"id":["id","text1","text2","numerical1","numerical2","numerical3","numerical1","numerical2","numerical3","numerical1","numerical2","numerical3","numerical1","numerical1","numerical2","numerical2","numerical3","numerical3","categories1","categories2","categories3"],"name":[null,"Text 1","Text 2","Bar 1","Bar 2","Bar 3","Circle 1","Circle 2","Circle 3","FunkyRect 1","FunkyRect 2","FunkyRect 3","Rect 1",null,"Rect 2",null,"Rect 3",null,"Pie 1","Pie 2","Pie 3"],"geom":["text","text","text","bar","bar","bar","circle","circle","circle","funkyrect","funkyrect","funkyrect","rect","text","rect","text","rect","text","pie","pie","pie"],"group":["text","text","text","bar","bar","bar","circle","circle","circle","funkyrect","funkyrect","funkyrect","rect",null,"rect",null,"rect",null,"pie","pie","pie"],"palette":[null,null,null,"bar","bar","bar","circle","circle","circle","funkyrect","funkyrect","funkyrect","rect","black6white4","rect","black6white4","rect","black6white4","pie","pie","pie"],"width":[1,3,4,2,2,2,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"label":[null,null,null,null,null,null,null,null,null,null,null,null,null,"numerical1_str",null,"numerical2_str",null,"numerical3_str",null,null,null],"overlay":[null,null,null,null,null,null,null,null,null,null,null,null,null,true,null,true,null,true,null,null,null]},"column_groups":{"group":["text","bar","circle","funkyrect","rect","pie"],"palette":["text","bar","circle","funkyrect","rect","pie"],"level1":["Text","Bars","Circles","FunkyRects","Rects","Pies"]},"row_info":{"group":["A-D","A-D","A-D","A-D","E-G","E-G","E-G","H-K","H-K","H-K","H-K"],"id":["A","B","C","D","E","F","G","H","I","J","K"]},"row_groups":{"group":["A-D","E-G","H-K"],"Group":["from A to D","from E to G","from H to K"]},"palettes":{"text":["#000000","#020202","#050505","#070707","#0A0A0A","#0C0C0C","#0F0F0F","#121212","#141414","#171717","#191919","#1C1C1C","#1F1F1F","#212121","#242424","#272727","#2A2A2A","#2D2D2D","#303030","#333333","#373737","#3A3A3A","#3D3D3D","#404040","#434343","#464646","#494949","#4D4D4D","#505050","#525252","#555555","#575757","#595959","#5C5C5C","#5E5E5E","#606060","#636363","#656565","#676767","#6A6A6A","#6C6C6C","#6E6E6E","#717171","#737373","#757575","#787878","#7A7A7A","#7D7D7D","#7F7F7F","#828282","#848484","#868686","#898989","#8B8B8B","#8E8E8E","#909090","#939393","#959595","#989898","#9B9B9B","#9D9D9D","#A0A0A0","#A3A3A3","#A5A5A5","#A8A8A8","#ABABAB","#AEAEAE","#B0B0B0","#B3B3B3","#B6B6B6","#B9B9B9","#BBBBBB","#BEBEBE","#C0C0C0","#C2C2C2","#C4C4C4","#C5C5C5","#C7C7C7","#C9C9C9","#CBCBCB","#CDCDCD","#CFCFCF","#D1D1D1","#D3D3D3","#D5D5D5","#D7D7D7","#D9D9D9","#DBDBDB","#DCDCDC","#DEDEDE","#DFDFDF","#E1E1E1","#E3E3E3","#E4E4E4","#E6E6E6","#E7E7E7","#E9E9E9","#EBEBEB","#ECECEC","#EEEEEE","#F0F0F0"],"bar":["#011636","#01183A","#021A3F","#021D44","#031F49","#04214D","#042452","#052657","#06285C","#062B60","#072D65","#072F6A","#08326E","#083573","#083877","#083B7C","#083E80","#084184","#084489","#08478D","#084A92","#084D96","#08509B","#09539D","#0C56A0","#0E59A2","#105BA4","#125EA6","#1561A9","#1764AB","#1967AD","#1B6AAF","#1E6DB2","#2070B4","#2272B6","#2575B7","#2878B9","#2B7BBA","#2E7EBC","#3181BD","#3484BF","#3787C0","#3A8AC2","#3D8DC3","#4090C5","#4493C6","#4795C8","#4B98C9","#4F9ACB","#529DCC","#56A0CE","#5AA2CF","#5DA5D0","#61A7D2","#65AAD3","#68ACD5","#6DAFD6","#71B1D7","#76B4D8","#7AB6D9","#7FB9DA","#83BBDB","#88BEDC","#8DC0DD","#91C3DE","#96C5DF","#9AC8E0","#9FCAE1","#A2CCE2","#A6CDE3","#AACFE5","#ADD0E6","#B1D2E7","#B4D3E8","#B8D5EA","#BCD6EB","#BFD8EC","#C3D9EE","#C6DBEF","#C8DCEF","#CADEF0","#CCDFF1","#CFE1F2","#D1E2F2","#D3E3F3","#D5E5F4","#D7E6F4","#D9E8F5","#DCE9F6","#DEEBF7","#E0ECF7","#E2EEF8","#E5EFF9","#E7F0F9","#E9F2FA","#EBF3FB","#EEF5FC","#F0F6FC","#F2F8FD","#F4F9FE","#F7FBFF"],"circle":["#CB181D","#CD1A1D","#CF1C1E","#D11E1F","#D32020","#D52221","#D72422","#DA2623","#DC2824","#DE2A25","#E02D26","#E22F26","#E43127","#E73328","#E93529","#EB372A","#ED392B","#EF3B2C","#EF3E2E","#F04130","#F14432","#F24733","#F24A35","#F34C37","#F44F39","#F5523B","#F5553C","#F6583E","#F75A40","#F75D42","#F86044","#F96345","#FA6647","#FA6949","#FB6B4B","#FB6E4E","#FB7050","#FB7252","#FB7555","#FB7757","#FB7A5A","#FB7C5C","#FB7E5E","#FB8161","#FB8363","#FB8666","#FB8868","#FB8A6A","#FB8D6D","#FB8F6F","#FC9272","#FC9474","#FC9677","#FC997A","#FC9B7D","#FC9E80","#FCA082","#FCA385","#FCA588","#FCA88B","#FCAA8E","#FCAD91","#FCAF93","#FCB196","#FCB499","#FCB69C","#FCB99F","#FCBBA1","#FCBDA4","#FCC0A7","#FCC2AA","#FCC4AD","#FCC6B0","#FCC9B3","#FCCBB6","#FDCDB9","#FDCFBC","#FDD1BF","#FDD4C2","#FDD6C5","#FDD8C8","#FDDACB","#FDDDCE","#FDDFD1","#FEE0D3","#FEE2D5","#FEE3D6","#FEE4D8","#FEE5DA","#FEE7DC","#FEE8DE","#FEE9DF","#FEEAE1","#FEECE3","#FEEDE5","#FEEEE7","#FEEFE8","#FEF1EA","#FEF2EC","#FEF3EE","#FFF5F0"],"funkyrect":["#EC7014","#EC7215","#ED7416","#EE7617","#EF7818","#F07A19","#F17C1A","#F27E1B","#F3801C","#F4821D","#F5841E","#F5861F","#F68820","#F78A21","#F88C22","#F98E23","#FA9024","#FB9225","#FC9426","#FD9627","#FE9929","#FE9B2A","#FE9D2C","#FE9F2E","#FEA130","#FEA332","#FEA534","#FEA836","#FEAA38","#FEAC3A","#FEAE3C","#FEB03D","#FEB23F","#FEB441","#FEB743","#FEB945","#FEBB47","#FEBD49","#FEBF4B","#FEC14D","#FEC44F","#FEC552","#FEC755","#FEC858","#FECA5C","#FECB5F","#FECD62","#FECE66","#FED069","#FED16C","#FED36F","#FED573","#FED676","#FED879","#FED97D","#FEDB80","#FEDC83","#FEDE87","#FEDF8A","#FEE18D","#FEE290","#FEE393","#FEE495","#FEE597","#FEE699","#FEE89B","#FEE99D","#FEEAA0","#FEEBA2","#FEEBA4","#FEEDA6","#FEEDA8","#FEEFAA","#FEF0AC","#FEF1AF","#FEF2B1","#FEF3B3","#FEF3B5","#FEF5B7","#FEF6B9","#FFF7BC","#FFF7BE","#FFF7C0","#FFF8C2","#FFF8C4","#FFF9C6","#FFF9C8","#FFF9CA","#FFFACC","#FFFACE","#FFFBD0","#FFFBD2","#FFFBD4","#FFFCD6","#FFFCD8","#FFFDDA","#FFFDDC","#FFFDDE","#FFFEE0","#FFFEE2","#FFFFE5"],"rect":["#00250F","#00270F","#002910","#002C11","#002E12","#003113","#003314","#003615","#003816","#003B17","#003D18","#004019","#00421A","#00451B","#00481D","#004C1E","#004F1F","#005221","#005622","#005923","#005C25","#005F26","#006327","#006629","#00692A","#006D2C","#026F2E","#057130","#087432","#0B7633","#0D7935","#107B38","#137D3A","#16803C","#19823E","#1C8540","#1E8741","#218944","#248C45","#268E47","#299149","#2B934B","#2D964D","#30994F","#329B51","#359E53","#37A055","#39A357","#3CA559","#3EA85B","#41AB5D","#45AC5F","#49AF61","#4DB163","#51B365","#55B567","#59B769","#5DB96B","#61BB6D","#65BD6F","#69BF71","#6DC173","#71C375","#75C477","#79C67A","#7DC87D","#80C980","#84CB83","#87CD86","#8BCE89","#8FD08C","#92D28F","#96D392","#99D595","#9DD798","#A1D99B","#A4DA9D","#A7DBA0","#AADCA3","#ADDEA6","#B0DFA9","#B3E0AC","#B6E1AF","#B9E3B2","#BCE4B5","#BFE5B8","#C2E7BB","#C5E8BE","#C8E9C1","#CAEAC3","#CDEBC6","#CFECC8","#D1EDCB","#D4EECE","#D6EFD0","#D9F0D3","#DBF1D5","#DDF2D8","#E0F3DA","#E2F4DD","#E5F5E0"],"pie":["#8DD3C7","#FFFFB3","#BEBADA"],"black6white4":["white","white","white","white","black","black","black","black","black","black"]},"columns":["id","text1","text2","numerical1","numerical2","numerical3","numerical1","numerical2","numerical3","numerical1","numerical2","numerical3","numerical1","numerical1","numerical2","numerical2","numerical3","numerical3","categories1","categories2","categories3"],"expand":3,"col_annot_offset":5,"add_abc":false,"scale_column":false}}]}
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">{funkyheatmap}</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../features.html" rel="" target="">
+ <span class="menu-text">Features</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../examples/minimal/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Example</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../paper/index.html" rel="" target="">
+ <span class="menu-text">Paper</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#funkyheatmap-in-r" id="toc-funkyheatmap-in-r" class="nav-link active" data-scroll-target="#funkyheatmap-in-r">funkyheatmap in R</a></li>
+  <li><a href="#funkyheatmap-js-in-javascript" id="toc-funkyheatmap-js-in-javascript" class="nav-link" data-scroll-target="#funkyheatmap-js-in-javascript">funkyheatmap-js in JavaScript</a></li>
+  <li><a href="#funkyheatmappy-in-python" id="toc-funkyheatmappy-in-python" class="nav-link" data-scroll-target="#funkyheatmappy-in-python">funkyheatmappy in Python</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/funkyheatmap/funkyheatmap.github.io/edit/main/examples/minimal/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/funkyheatmap/funkyheatmap.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Minimal reproducible example</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="funkyheatmap-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="funkyheatmap-in-r">funkyheatmap in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> funkyheatmap<span class="sc">::</span><span class="fu">funky_heatmap</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column_info =</span> column_info,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">column_groups =</span> column_groups,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">row_info =</span> row_info,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">row_groups =</span> row_groups,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">palettes =</span> palettes</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Column info did not contain a column called 'legend', generating options based on the 'geom' column.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="765"></p>
+</div>
+</div>
+</section>
+<section id="funkyheatmap-js-in-javascript" class="level2">
+<h2 class="anchored" data-anchor-id="funkyheatmap-js-in-javascript">funkyheatmap-js in JavaScript</h2>
+<div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="74" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 73;"><span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>viewof color_by_rank <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">toggle</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"Color by rank"</span>})</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>viewof scale_column <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">toggle</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"Minmax column"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell panel-input card bg-light p-2 quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" data-startfrom="79" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 78;"><span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="fu">funkyheatmap</span>(</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">data</span><span class="op">,</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>  <span class="co">// </span><span class="al">TODO</span><span class="co">: remove columns, since this information is available in column info</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">columns</span><span class="op">,</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">column_info</span><span class="op">,</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">column_groups</span><span class="op">,</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  <span class="co">// </span><span class="al">TODO</span><span class="co">: uncomment row_info and row_groups</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>  <span class="co">// funky_heatmap_args.row_info,</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>  <span class="co">// funky_heatmap_args.row_groups,</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">palettes</span><span class="op">,</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>  <span class="co">// </span><span class="al">TODO</span><span class="co">: align the parameters below with R</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">expand</span><span class="op">,</span> </span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">col_annot_offset</span><span class="op">,</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>  funky_heatmap_args<span class="op">.</span><span class="at">add_abc</span><span class="op">,</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>  scale_column<span class="op">,</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    <span class="dt">rowHeight</span><span class="op">:</span> <span class="dv">26</span><span class="op">,</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    <span class="dt">rootStyle</span><span class="op">:</span> <span class="st">'max-width: none'</span><span class="op">,</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    <span class="dt">colorByRank</span><span class="op">:</span> color_by_rank<span class="op">,</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    <span class="dt">theme</span><span class="op">:</span> {</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>        <span class="dt">oddRowBackground</span><span class="op">:</span> <span class="st">'var(--bs-body-bg)'</span><span class="op">,</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>        <span class="dt">evenRowBackground</span><span class="op">:</span> <span class="st">'var(--bs-button-hover)'</span><span class="op">,</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>        <span class="dt">textColor</span><span class="op">:</span> <span class="st">'var(--bs-body-color)'</span><span class="op">,</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>        <span class="dt">strokeColor</span><span class="op">:</span> <span class="st">'var(--bs-body-color)'</span><span class="op">,</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>        <span class="dt">headerColor</span><span class="op">:</span> <span class="st">'var(--bs-white)'</span><span class="op">,</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>        <span class="dt">hoverColor</span><span class="op">:</span> <span class="st">'var(--bs-body-color)'</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="113" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 112;"><span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>funkyheatmap <span class="op">=</span> (<span class="cf">await</span> <span class="pp">require</span>(<span class="st">'d3@7'</span>)<span class="op">.</span><span class="fu">then</span>(d3 <span class="kw">=&gt;</span> {</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>  <span class="bu">window</span><span class="op">.</span><span class="at">d3</span> <span class="op">=</span> d3<span class="op">;</span></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>  <span class="bu">window</span><span class="op">.</span><span class="at">_</span> <span class="op">=</span> _<span class="op">;</span></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="im">import</span>(<span class="st">'https://unpkg.com/funkyheatmap-js@0.1.8'</span>)<span class="op">;</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>}))<span class="op">.</span><span class="at">default</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</section>
+<section id="funkyheatmappy-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="funkyheatmappy-in-python">funkyheatmappy in Python</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: remove workaround</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>column_info.index <span class="op">=</span> column_info[<span class="st">"id"</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>column_info[<span class="st">"name"</span>] <span class="op">=</span> [ <span class="st">""</span> <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(name, <span class="bu">str</span>) <span class="cf">else</span> name <span class="cf">for</span> name <span class="kw">in</span> column_info[<span class="st">"name"</span>] ]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>row_info.index <span class="op">=</span> row_info[<span class="st">"id"</span>]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: rename function to `funky_heatmap()`</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>funkyheatmap(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>data,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  column_info<span class="op">=</span>column_info,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  column_groups<span class="op">=</span>column_groups,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  row_info<span class="op">=</span>row_info,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  row_groups<span class="op">=</span>row_groups,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  palettes<span class="op">=</span>palettes,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/runner/work/funkyheatmap.github.io/funkyheatmap.github.io/renv/python/virtualenvs/renv-python-3.11/lib/python3.11/site-packages/funkyheatmappy/calculate_row_positions.py:11: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  row_pos["do_spacing"].iloc[0] = False</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="766"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof color_by_rank = Inputs.toggle({label: \"Color by rank\"})\nviewof scale_column = Inputs.toggle({label: \"Minmax column\"})\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"funkyheatmap(\n  funky_heatmap_args.data,\n  // TODO: remove columns, since this information is available in column info\n  funky_heatmap_args.columns,\n  funky_heatmap_args.column_info,\n  funky_heatmap_args.column_groups,\n  // TODO: uncomment row_info and row_groups\n  // funky_heatmap_args.row_info,\n  // funky_heatmap_args.row_groups,\n  funky_heatmap_args.palettes,\n  // TODO: align the parameters below with R\n  funky_heatmap_args.expand, \n  funky_heatmap_args.col_annot_offset,\n  funky_heatmap_args.add_abc,\n  scale_column,\n  {\n    fontSize: 14,\n    rowHeight: 26,\n    rootStyle: 'max-width: none',\n    colorByRank: color_by_rank,\n    theme: {\n        oddRowBackground: 'var(--bs-body-bg)',\n        evenRowBackground: 'var(--bs-button-hover)',\n        textColor: 'var(--bs-body-color)',\n        strokeColor: 'var(--bs-body-color)',\n        headerColor: 'var(--bs-white)',\n        hoverColor: 'var(--bs-body-color)'\n    }\n  }\n);\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"funkyheatmap = (await require('d3@7').then(d3 => {\n  window.d3 = d3;\n  window._ = _;\n  return import('https://unpkg.com/funkyheatmap-js@0.1.8');\n})).default;\n"},{"methodName":"interpretQuiet","source":"shinyInput('color_by_rank')"},{"methodName":"interpretQuiet","source":"shinyInput('scale_column')"}]}
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../examples/minimal";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
