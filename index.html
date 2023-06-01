@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -108,7 +108,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -201,7 +202,39 @@ div.csl-indent {
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>…</p>
+<p>Let’s use the <code>mtcars</code> dataset as an example of what a funky heatmap looks like.</p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(funkyheatmap)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>column_info <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id,     <span class="sc">~</span>group,         <span class="sc">~</span>name,                      <span class="sc">~</span>geom,        <span class="sc">~</span>palette,    <span class="sc">~</span>options,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"id"</span>,    <span class="st">""</span>,             <span class="st">""</span>,                         <span class="st">"text"</span>,       <span class="cn">NA</span>,          <span class="fu">list</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">width =</span> <span class="dv">6</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mpg"</span>,   <span class="st">"overall"</span>,      <span class="st">"Miles / gallon"</span>,           <span class="st">"bar"</span>,        <span class="st">"palette1"</span>,  <span class="fu">list</span>(<span class="at">width =</span> <span class="dv">4</span>, <span class="at">legend =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"cyl"</span>,   <span class="st">"overall"</span>,      <span class="st">"Number of cylinders"</span>,      <span class="st">"bar"</span>,        <span class="st">"palette2"</span>,  <span class="fu">list</span>(<span class="at">width =</span> <span class="dv">4</span>, <span class="at">legend =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"disp"</span>,  <span class="st">"group1"</span>,       <span class="st">"Displacement (cu.in.)"</span>,    <span class="st">"funkyrect"</span>,  <span class="st">"palette1"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"hp"</span>,    <span class="st">"group1"</span>,       <span class="st">"Gross horsepower"</span>,         <span class="st">"funkyrect"</span>,  <span class="st">"palette1"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"drat"</span>,  <span class="st">"group1"</span>,       <span class="st">"Rear axle ratio"</span>,          <span class="st">"funkyrect"</span>,  <span class="st">"palette1"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"wt"</span>,    <span class="st">"group1"</span>,       <span class="st">"Weight (1000 lbs)"</span>,        <span class="st">"funkyrect"</span>,  <span class="st">"palette1"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"qsec"</span>,  <span class="st">"group2"</span>,       <span class="st">"1/4 mile time"</span>,            <span class="st">"circle"</span>,     <span class="st">"palette2"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"vs"</span>,    <span class="st">"group2"</span>,       <span class="st">"Engine"</span>,                   <span class="st">"circle"</span>,     <span class="st">"palette2"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"am"</span>,    <span class="st">"group2"</span>,       <span class="st">"Transmission"</span>,             <span class="st">"circle"</span>,     <span class="st">"palette2"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"gear"</span>,  <span class="st">"group2"</span>,       <span class="st">"# Forward gears"</span>,          <span class="st">"circle"</span>,     <span class="st">"palette2"</span>,  <span class="fu">lst</span>(),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"carb"</span>,  <span class="st">"group2"</span>,       <span class="st">"# Carburetors"</span>,            <span class="st">"circle"</span>,     <span class="st">"palette2"</span>,  <span class="fu">lst</span>()</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">funky_heatmap</span>(data, <span class="at">column_info =</span> column_info, <span class="at">expand =</span> <span class="fu">list</span>(<span class="at">xmax =</span> <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/heatmap-1.png" class="img-fluid" width="693"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="more-information" class="level2">
 <h2 class="anchored" data-anchor-id="more-information">More information</h2>
