@@ -15,8 +15,11 @@ website:
       - href: index.qmd
         text: Home
       - features.qmd
-      - text: Example
-        href: examples/minimal/index.qmd
+      - text: Examples
+        menu:
+          - examples/dynbenchmark/index.qmd
+          - examples/minimal/index.qmd
+          - examples/mtcars/index.qmd
       - text: Paper
         href: paper/index.qmd
 

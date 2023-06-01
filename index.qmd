@@ -1,5 +1,5 @@
 ---
-title: "funkyheatmap: Visualising data frames"
+title: "`{funkyheatmap}`: Visualising data frames with mixed data types"
 bibliography: paper/library.bib
 ---
 
