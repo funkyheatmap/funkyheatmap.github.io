@@ -66,7 +66,7 @@ cli::cli_alert("convert to bibtex")
 bibs <- map2_chr(names(citations), citations, function(name, text) {
   bib <-
     if (grepl("^@", text)) {
-      # text is already a bibtex
+      # text is already a bibtex, update citation key
       text
     } else {
       url <- paste0("https://doi.org/", text)
@@ -79,7 +79,7 @@ bibs <- map2_chr(names(citations), citations, function(name, text) {
       }
     }
   bib %>%
-    gsub("(@[a-zA-Z]+\\{)[A-Za-z0-9_-]*,", paste0("\\1", name, ","), .) %>%
+    gsub("(@[^\\{]+\\{)[^,]*,", paste0("\\1", name, ","), .) %>%
     gsub("\\{\\\\&\\}amp\\$\\\\mathsemicolon\\$", "{\\\\&}", .)
 })
 
