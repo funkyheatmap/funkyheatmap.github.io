@@ -16,22 +16,23 @@ features <- tribble(
   ~id,                          ~description,                                                                       ~R,   ~Python,  ~JS,
   "Data input",                 "Allows for input of a data frame with items by row and features in the columns.",  "✓",  "✓",      "✓",
   "Column info",                "Provides customization of columns, including geom, group, palette, and more.",     "✓",  "✓",      "✓",
-  "Row info",                   "Allows for grouping and annotating rows.",                                         "✓",  "✓",      "",
+  "Row info",                   "Allows for grouping and annotating rows.",                                         "✓",  "✓",      "✓",
   "Column groups",              "Allows for grouping and annotating column groups.",                                "✓",  "✓",      "✓",
-  "Row groups",                 "Allows for grouping and annotating row groups.",                                   "✓",  "✓",      "",
-  "Palettes",                   "Supports custom and standard color palettes for the heatmap.",                     "✓",  "✓",      "±",
+  "Row groups",                 "Allows for grouping and annotating row groups.",                                   "✓",  "✓",      "✓",
+  "Palettes",                   "Supports custom and standard color palettes for the heatmap.",                     "✓",  "✓",      "✓",
   "Geom: funkyrect",            "Supports 'funkyrect' geometry.",                                                   "✓",  "✓",      "✓",
   "Geom: circle",               "Supports 'circle' geometry.",                                                      "✓",  "✓",      "✓",
-  "Geom: rect",                 "Supports 'rect' geometry.",                                                        "✓",  "✓",      "",
+  "Geom: rect",                 "Supports 'rect' geometry.",                                                        "✓",  "✓",      "✓",
   "Geom: bar",                  "Supports 'bar' geometry.",                                                         "✓",  "✓",      "✓",
-  "Geom: pie",                  "Supports 'pie' geometry.",                                                         "✓",  "✓",      "",
+  "Geom: pie",                  "Supports 'pie' geometry.",                                                         "✓",  "✓",      "✓",
   "Geom: text",                 "Supports 'text' geometry.",                                                        "✓",  "✓",      "✓",
   "Geom: image",                "Supports 'image' geometry.",                                                       "✓",  "✓",      "",
   "Numerical transformations",  "Provides transformation capabilities for numerical columns.",                      "✓",  "✓",      "✓",
   "Positioning options",        "Options to control the positioning of various elements in the plot.",              "✓",  "✓",      "✓",
   "Subfigure labels",           "Enables adding subfigure labels to different column groups.",                      "✓",  "✓",      "✓",
   "Removed entries",            "Supports removing specified entries from rows and replacing them with a label.",   "✓",  "✓",       "",
-  "Label on hover",             "Allow hovering over a result to see a label",                                      "",   "",       "✓"
+  "Label on hover",             "Allow hovering over a result to see a label",                                      "",   "",       "✓",
+  "Dynamic sort",               "Allow sorting by clicking on the column name",                                     "",   "",       "✓"
 # tribble_end
 )
 

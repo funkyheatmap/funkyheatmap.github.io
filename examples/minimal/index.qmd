@@ -48,7 +48,20 @@ g
 
 ## funkyheatmap-js in JavaScript
 
-```{r echo=FALSE}
+Transform R parameters to JS
+
+```{r}
+js_palettes <- palettes
+js_palettes$pie <- list(colors = unname(js_palettes$pie), names = names(js_palettes$pie))
+
+column_info <- column_info %>%
+    filter(is.na(overlay) | overlay != TRUE) %>%
+    mutate(label = case_when(
+        name == "Rect 1" ~ "numerical1_str",
+        name == "Rect 2" ~ "numerical2_str",
+        name == "Rect 3" ~ "numerical3_str"
+    ))
+
 ojs_define(
   funky_heatmap_args = list(
     data = data,
@@ -56,13 +69,7 @@ ojs_define(
     column_groups = column_groups,
     row_info = row_info,
     row_groups = row_groups,
-    palettes = palettes,
-    # TODO: these parameters should be optional
-    columns = column_info$id,
-    expand = c(xmax = 3),
-    col_annot_offset = 5,
-    add_abc = FALSE,
-    scale_column = FALSE
+    palettes = js_palettes
   )
 )
 ```
@@ -70,40 +77,29 @@ ojs_define(
 ```{ojs}
 //| echo: false
 //| panel: input
-//| layout-ncol: 2
 viewof color_by_rank = Inputs.toggle({label: "Color by rank"})
-viewof scale_column = Inputs.toggle({label: "Minmax column"})
 ```
-
 
 ```{ojs}
 funkyheatmap(
   funky_heatmap_args.data,
-  // TODO: remove columns, since this information is available in column info
-  funky_heatmap_args.columns,
   funky_heatmap_args.column_info,
+  funky_heatmap_args.row_info,
   funky_heatmap_args.column_groups,
-  // TODO: uncomment row_info and row_groups
-  // funky_heatmap_args.row_info,
-  // funky_heatmap_args.row_groups,
+  funky_heatmap_args.row_groups,
   funky_heatmap_args.palettes,
-  // TODO: align the parameters below with R
-  funky_heatmap_args.expand, 
-  funky_heatmap_args.col_annot_offset,
-  funky_heatmap_args.add_abc,
-  scale_column,
   {
     fontSize: 14,
     rowHeight: 26,
     rootStyle: 'max-width: none',
     colorByRank: color_by_rank,
     theme: {
-        oddRowBackground: 'var(--bs-body-bg)',
-        evenRowBackground: 'var(--bs-button-hover)',
-        textColor: 'var(--bs-body-color)',
-        strokeColor: 'var(--bs-body-color)',
-        headerColor: 'var(--bs-white)',
-        hoverColor: 'var(--bs-body-color)'
+        oddRowBackground: 'white',
+        evenRowBackground: '#ddd',
+        textColor: 'black',
+        strokeColor: 'black',
+        headerColor: 'black',
+        hoverColor: 'blue'
     }
   }
 );
@@ -114,7 +110,7 @@ funkyheatmap(
 funkyheatmap = (await require('d3@7').then(d3 => {
   window.d3 = d3;
   window._ = _;
-  return import('https://unpkg.com/funkyheatmap-js@0.1.8');
+  return import('https://unpkg.com/funkyheatmapjs@0.2.3');
 })).default;
 ```
 
