@@ -138,15 +138,15 @@ div.csl-indent {
     <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./features.html" rel="" target="">
- <span class="menu-text">Features</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-examples" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Examples</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-examples">    
+        <li>
+    <a class="dropdown-item" href="./examples/features.html" rel="" target="">
+ <span class="dropdown-text">Cross-language feature support</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./examples/dynbenchmark/index.html" rel="" target="">
  <span class="dropdown-text">dynbenchmark: A comparison of trajectory inference methods</span></a>
@@ -166,7 +166,20 @@ div.csl-indent {
  <span class="menu-text">Paper</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="https://funkyheatmap.github.io/funkyheatmap/reference/index.html" rel="" target="">
+ <span class="dropdown-text">R</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -213,7 +226,6 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <p>You can install funkyheatmap like so:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"funkyheatmap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also download funkyheatmap as a <a href="http://funkyheatmap.dynverse.org/articles/executable.html">standalone Bash executable</a>.</p>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
@@ -254,10 +266,9 @@ div.csl-indent {
 <section id="more-information" class="level2">
 <h2 class="anchored" data-anchor-id="more-information">More information</h2>
 <ul>
-<li><p>The <a href="https://funkyheatmap.dynverse.org/reference/index.html">reference documentation</a> on <code>funky_heatmap()</code> details the exact formats of each annotation object that you can pass to it.</p></li>
+<li><p>The <a href="https://funkyheatmap.github.io/funkyheatmap/reference/index.html">reference documentation</a> on <code>funky_heatmap()</code> details the exact formats of each annotation object that you can pass to it.</p></li>
 <li><p>Check out the vignette <a href="https://funkyheatmap.dynverse.org/articles/mtcars.html"><code>vignette("mtcars", "funkyheatmap")</code></a> for more information on how to customize this visualisation.</p></li>
 <li><p>In <a href="https://funkyheatmap.dynverse.org/articles/dynbenchmark.html"><code>vignette("dynbenchmark", "funkyheatmap")</code></a> we use funkyheatmap to regenerate the figures from Saelens et al.&nbsp;(2019) <a href="https://doi.org/10.1038/s41587-019-0071-9">doi:10.1038/s41587-019-0071-9</a>.</p></li>
-<li><p>We used <a href="https://viash.io">Viash</a> to wrap the <code>funkyheatmap::funky_heatmap()</code> function as a <a href="https://funkyheatmap.dynverse.org/articles/executable.html">standalone executable</a>.</p></li>
 </ul>
 </section>
 <section id="works-with-funkyheatmap-like-visualisations" class="level2">
