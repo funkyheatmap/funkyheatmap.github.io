@@ -1,5 +1,7 @@
 ---
-title: "mtcars: A small demo"
+title: "Example: mtcars"
+aliases: 
+  - /examples/mtcars/index.html
 ---
 
 
