@@ -33,37 +33,41 @@ data <- tibble(
     function(a) {
       c("foo" = a + .0001, "bar" = a^2 + a / 2, "zing" = a^3 + a / 3)
     }
-  )
+  ),
+  image = c("one", "one", "one", "one", "two", "two", "two", "three", "three", "three", "three"),
+  image_with_ext = paste0(image, ".png"),
+  image_full = paste0("images/", image, ".png")
 )
 
 # create column info
 
-# todo: add image
-    # "image",      "Image",         "image",      "first",        NA_character_,  list(directory = "images/", extension = ".png"),
 column_info <- tribble(
   # tribble_start
-  ~id,            ~name,          ~geom,        ~group,         ~palette,        ~options,
-  "id",           "",             "text",       "text",         NA_character_,   list(width = 1),
-  "text1",        "Text 1",       "text",       "text",         NA_character_,   list(width = 3),
-  "text2",        "Text 2",       "text",       "text",         NA_character_,   list(width = 4),
-  "numerical1",   "Bar 1",        "bar",        "bar",          "bar",           list(width = 2),
-  "numerical2",   "Bar 2",        "bar",        "bar",          "bar",           list(width = 2),
-  "numerical3",   "Bar 3",        "bar",        "bar",          "bar",           list(width = 2),
-  "numerical1",   "Circle 1",     "circle",     "circle",       "circle",        list(),
-  "numerical2",   "Circle 2",     "circle",     "circle",       "circle",        list(),
-  "numerical3",   "Circle 3",     "circle",     "circle",       "circle",        list(),
-  "numerical1",   "FunkyRect 1",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
-  "numerical2",   "FunkyRect 2",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
-  "numerical3",   "FunkyRect 3",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
-  "numerical1",   "Rect 1",       "rect",       "rect",         "rect",          list(),
-  "numerical1",   "",             "text",       NA_character_,  "black6white4",  list(label = "numerical1_str", overlay = TRUE),
-  "numerical2",   "Rect 2",       "rect",       "rect",         "rect",          list(),
-  "numerical2",   "",             "text",       NA_character_,  "black6white4",  list(label = "numerical2_str", overlay = TRUE),
-  "numerical3",   "Rect 3",       "rect",       "rect",         "rect",          list(),
-  "numerical3",   "",             "text",       NA_character_,  "black6white4",  list(label = "numerical3_str", overlay = TRUE),
-  "categories1",  "Pie 1",        "pie",        "pie",          "pie",           list(),
-  "categories2",  "Pie 2",        "pie",        "pie",          "pie",           list(),
-  "categories3",  "Pie 3",        "pie",        "pie",          "pie",           list()
+  ~id,               ~name,          ~geom,        ~group,         ~palette,        ~options,
+  "id",              "",             "text",       "text",         NA_character_,   list(width = 1),
+  "text1",           "Text 1",       "text",       "text",         NA_character_,   list(width = 3),
+  "text2",           "Text 2",       "text",       "text",         NA_character_,   list(width = 4),
+  "numerical1",      "Bar 1",        "bar",        "bar",          "bar",           list(width = 2),
+  "numerical2",      "Bar 2",        "bar",        "bar",          "bar",           list(width = 2),
+  "numerical3",      "Bar 3",        "bar",        "bar",          "bar",           list(width = 2),
+  "numerical1",      "Circle 1",     "circle",     "circle",       "circle",        list(),
+  "numerical2",      "Circle 2",     "circle",     "circle",       "circle",        list(),
+  "numerical3",      "Circle 3",     "circle",     "circle",       "circle",        list(),
+  "numerical1",      "FunkyRect 1",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
+  "numerical2",      "FunkyRect 2",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
+  "numerical3",      "FunkyRect 3",  "funkyrect",  "funkyrect",    "funkyrect",     list(),
+  "numerical1",      "Rect 1",       "rect",       "rect",         "rect",          list(),
+  "numerical1",      "",             "text",       NA_character_,  "black6white4",  list(label = "numerical1_str", overlay = TRUE),
+  "numerical2",      "Rect 2",       "rect",       "rect",         "rect",          list(),
+  "numerical2",      "",             "text",       NA_character_,  "black6white4",  list(label = "numerical2_str", overlay = TRUE),
+  "numerical3",      "Rect 3",       "rect",       "rect",         "rect",          list(),
+  "numerical3",      "",             "text",       NA_character_,  "black6white4",  list(label = "numerical3_str", overlay = TRUE),
+  "categories1",     "Pie 1",        "pie",        "pie",          "pie",           list(),
+  "categories2",     "Pie 2",        "pie",        "pie",          "pie",           list(),
+  "categories3",     "Pie 3",        "pie",        "pie",          "pie",           list(),
+  "image",           "Image 1",      "image",      "image",        NA_character_,   list(directory = "images/", extension = "svg"),
+  "image_with_ext",  "Image 2",      "image",      "image",        NA_character_,   list(directory = "images/"),
+  "image_full",      "Image 3",      "image",      "image",        NA_character_,   list()
   # tribble_end
 ) %>%
   mutate(options = map(options, function(x) {
@@ -82,7 +86,8 @@ column_groups <- tribble(
   "circle",     "circle",     "Circles",
   "funkyrect",  "funkyrect",  "FunkyRects",
   "rect",       "rect",       "Rects",
-  "pie",        "pie",        "Pies"
+  "pie",        "pie",        "Pies",
+  "image",      "image",      "Image"
   # tribble_end
 )
 
