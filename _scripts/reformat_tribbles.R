@@ -68,4 +68,4 @@ reformat_tribbles <- function(script_file, align = c("left", "center", "right"))
 }
 
 reformat_tribbles("features.qmd")
-reformat_tribbles("examples/minimal/_script.R")
+reformat_tribbles("articles/minimal/_script.R")
