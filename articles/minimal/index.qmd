@@ -1,5 +1,7 @@
 ---
 title: Minimal reproducible example
+aliases: 
+  - /examples/minimal/index.html
 ---
 
 ## funkyheatmap in R

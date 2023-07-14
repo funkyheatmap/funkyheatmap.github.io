@@ -1,6 +1,8 @@
 ---
-title: "dynbenchmark: A comparison of trajectory inference methods"
+title: "Example: dynbenchmark"
 bibliography: ../../paper/library.bib
+aliases: 
+  - /examples/dynbenchmark/index.html
 ---
 
 In this vignette, we will use `funkyheatmap` to reproduce the figures by @comparisonsinglecell_saelens2019.

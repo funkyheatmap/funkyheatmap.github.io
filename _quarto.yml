@@ -14,12 +14,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: Examples
+      - text: Articles
         menu:
-          - examples/features.qmd
-          - examples/dynbenchmark/index.qmd
-          - examples/minimal/index.qmd
-          - examples/mtcars/index.qmd
+          - articles/features.qmd
+          - articles/example_dynbenchmark/index.qmd
+          - articles/example_mtcars/index.qmd
+          - articles/minimal/index.qmd
       - text: Paper
         href: paper/index.qmd
     right:
