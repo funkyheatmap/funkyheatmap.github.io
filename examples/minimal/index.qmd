@@ -27,6 +27,17 @@ palettes <- jsonlite::read_json(paste0(dir, "/data/palettes.json"), simplifyVect
 palettes$pie <- unlist(palettes$pie)
 ```
 
+```{r include=FALSE}
+if (dir != ".") {
+  # fix paths
+  adir <- normalizePath(dir)
+  data <- data %>%
+    mutate(image_full = paste0(adir, "/", image_full))
+  column_info <- column_info %>%
+    mutate(directory = ifelse(is.na(directory), "", paste0(adir, "/", directory)))
+}
+```
+
 ```{r}
 g <- funkyheatmap::funky_heatmap(
   data = data,
