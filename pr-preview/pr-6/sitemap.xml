@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://funkyheatmap.github.io/articles/minimal/index.html</loc>
+    <lastmod>2023-07-14T12:23:26.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://funkyheatmap.github.io/articles/example_dynbenchmark/index.html</loc>
+    <lastmod>2023-07-14T12:22:31.023Z</lastmod>
+  </url>
+  <url>
     <loc>https://funkyheatmap.github.io/paper/index.html</loc>
-    <lastmod>2023-07-14T11:30:42.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://funkyheatmap.github.io/examples/minimal/index.html</loc>
-    <lastmod>2023-07-14T11:29:37.785Z</lastmod>
-  </url>
-  <url>
-    <loc>https://funkyheatmap.github.io/features.html</loc>
-    <lastmod>2023-07-14T11:28:16.541Z</lastmod>
+    <lastmod>2023-07-14T12:21:12.994Z</lastmod>
   </url>
   <url>
     <loc>https://funkyheatmap.github.io/index.html</loc>
-    <lastmod>2023-07-14T11:27:52.893Z</lastmod>
+    <lastmod>2023-07-14T12:20:13.138Z</lastmod>
   </url>
   <url>
-    <loc>https://funkyheatmap.github.io/examples/dynbenchmark/index.html</loc>
-    <lastmod>2023-07-14T11:29:05.389Z</lastmod>
+    <loc>https://funkyheatmap.github.io/features.html</loc>
+    <lastmod>2023-07-14T12:20:36.930Z</lastmod>
   </url>
   <url>
-    <loc>https://funkyheatmap.github.io/examples/mtcars/index.html</loc>
-    <lastmod>2023-07-14T11:30:06.465Z</lastmod>
+    <loc>https://funkyheatmap.github.io/articles/example_mtcars/index.html</loc>
+    <lastmod>2023-07-14T12:21:41.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://funkyheatmap.github.io/articles/features.html</loc>
+    <lastmod>2023-07-14T12:22:54.467Z</lastmod>
   </url>
 </urlset>
