@@ -20,8 +20,6 @@ You can install funkyheatmap like so:
 install.packages("funkyheatmap")
 ```
 
-You can also download funkyheatmap as a [standalone Bash executable](http://funkyheatmap.dynverse.org/articles/executable.html).
-
 
 ## Example
 
@@ -67,16 +65,13 @@ funky_heatmap(data, column_info = column_info, expand = list(xmax = 4))
 
 ## More information 
   
-* The [reference documentation](https://funkyheatmap.dynverse.org/reference/index.html)
+* The [reference documentation](https://funkyheatmap.github.io/funkyheatmap/reference/index.html)
   on `funky_heatmap()` details the exact formats of each annotation object that you can pass to it.
 
 * Check out the vignette [`vignette("mtcars", "funkyheatmap")`](https://funkyheatmap.dynverse.org/articles/mtcars.html) for more information on how to customize this visualisation.
 
 * In [`vignette("dynbenchmark", "funkyheatmap")`](https://funkyheatmap.dynverse.org/articles/dynbenchmark.html) we 
   use funkyheatmap to regenerate the figures from Saelens et al. (2019) [doi:10.1038/s41587-019-0071-9](https://doi.org/10.1038/s41587-019-0071-9).
-
-* We used [Viash](https://viash.io) to wrap the `funkyheatmap::funky_heatmap()` function
-  as a [standalone executable](https://funkyheatmap.dynverse.org/articles/executable.html).
 
 ## Works with funkyheatmap(-like) visualisations
 

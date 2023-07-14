@@ -14,14 +14,19 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - features.qmd
       - text: Examples
         menu:
+          - examples/features.qmd
           - examples/dynbenchmark/index.qmd
           - examples/minimal/index.qmd
           - examples/mtcars/index.qmd
       - text: Paper
         href: paper/index.qmd
+    right:
+      - text: Reference
+        menu: 
+          - href: https://funkyheatmap.github.io/funkyheatmap/reference/index.html
+            text: R
 
 format:
   html:
