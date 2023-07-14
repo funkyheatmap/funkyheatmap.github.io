@@ -80,14 +80,14 @@ column_info <- tribble(
   unnest(cols = "options")
 column_groups <- tribble(
   # tribble_start
-  ~group,       ~palette,     ~level1,
-  "text",       "text",       "Text",
-  "bar",        "bar",        "Bars",
-  "circle",     "circle",     "Circles",
-  "funkyrect",  "funkyrect",  "FunkyRects",
-  "rect",       "rect",       "Rects",
-  "pie",        "pie",        "Pies",
-  "image",      "image",      "Image"
+  ~group,      ~palette,      ~level1,
+  "text",      "text",        "Text",
+  "bar",       "bar",         "Bars",
+  "circle",    "circle",      "Circles",
+  "funkyrect", "funkyrect",   "FunkyRects",
+  "rect",      "rect",        "Rects",
+  "pie",       "pie",         "Pies",
+  "image",     NA_character_, "Image"
   # tribble_end
 )
 
@@ -115,7 +115,7 @@ palettes <- list(
 )
 
 # create dir if not exists
-data_dir <- "examples/minimal/data"
+data_dir <- "articles/minimal/data"
 if (!dir.exists(data_dir)) dir.create(data_dir, recursive = TRUE)
 
 # tweak data formats before writing them to file
