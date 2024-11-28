@@ -299,8 +299,9 @@
     },
     "funkyheatmap": {
       "Package": "funkyheatmap",
-      "Version": "0.6.0",
-      "Source": "unknown",
+      "Version": "0.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "RColorBrewer",
@@ -319,7 +320,7 @@
         "tibble",
         "tidyr"
       ],
-      "Hash": "a8891f9ec3589fff4d83399dac7f02fb"
+      "Hash": "eedee2c78f3d6ae372e1bc3079896c28"
     },
     "generics": {
       "Package": "generics",
