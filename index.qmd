@@ -1,5 +1,4 @@
 ---
-bibliography: paper/library.bib
 toc: false
 citation-location: margin
 ---
