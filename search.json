@@ -2,21 +2,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "",
+    "title": "funkyheatmap: Visualising data frames",
     "section": "",
     "text": "{funkyheatmap} allows generating heatmap-like visualisations for data frames. Funky heatmaps can be fine-tuned by providing annotations of the columns and rows, which allows assigning multiple palettes or geometries or grouping rows and columns together in categories."
   },
   {
     "objectID": "index.html#implementations",
     "href": "index.html#implementations",
-    "title": "",
+    "title": "funkyheatmap: Visualising data frames",
     "section": "Implementations",
     "text": "Implementations\n\nJavaScript (incomplete): Repo, npm\nPython: Repo, PyPI, Docs\nR: Repo, CRAN, Docs"
   },
   {
     "objectID": "index.html#gallery",
     "href": "index.html#gallery",
-    "title": "",
+    "title": "funkyheatmap: Visualising data frames",
     "section": "Gallery",
     "text": "Gallery\nThese are works with funkyheatmap (-inspired) visualisations. Add your work to the list by creating a PR!\n\n\n\n\n\n\n\n\n\nWouter Saelens, Robrecht Cannoodt, Helena Todorov, and Yvan Saeys. 2019. “A Comparison of Single-Cell Trajectory Inference Methods.” Nature Biotechnology. doi: 10.1038/s41587-019-0071-9.\n\n\n\n\n\n\n\nLuecken, Malte D., M. Büttner, K. Chaichoompu, A. Danese, M. Interlandi, M. F. Mueller, D. C. Strobl, et al. 2021. “Benchmarking Atlas-Level Data Integration in Single-Cell Genomics.” Nature Methods. doi: 10.1038/s41592-021-01336-8.\n\n\n\n\n\n\n\n\n\nMereu, Elisabetta, Atefeh Lafzi, Catia Moutinho, Christoph Ziegenhain, Davis J. McCarthy, Adrián Álvarez-Varela, Eduard Batlle, et al. 2020. “Benchmarking Single-Cell RNA-Sequencing Protocols for Cell Atlas Projects.” Nature Biotechnology. doi: 10.1038/s41587-020-0469-4.\n\n\n\n\n\n\n\nPratapa, Aditya, Amogh P. Jalihal, Jeffrey N. Law, Aditya Bharadwaj, and T. M. Murali. 2019. “Benchmarking Algorithms for Gene Regulatory Network Inference from Single-Cell Transcriptomic Data.” bioRxiv. doi: 10.1101/642926.\n\n\n\n\n\n\n\n\n\nYan, Lulu, and Xiaoqiang Sun. 2022. “Benchmarking and Integration of Methods for Deconvoluting Spatial Transcriptomic Data.” Bioinformatics. doi: 10.1093/bioinformatics/btac805.\n\n\n\n\n\n\n\nSang-aram, Chananchida, Robin Browaeys, Ruth Seurinck, and Yvan Saeys. 2023. “Spotless: A Reproducible Pipeline for Benchmarking Cell Type Deconvolution in Spatial Transcriptomics,” eLife. doi: 10.7554/eLife.88431.3."
   }
