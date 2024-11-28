@@ -4,8 +4,7 @@ project:
     port: 4311
 
 website:
-  title: ""
-  description: "Visualising data frames"
+  title: "funkyheatmap: Visualising data frames"
   image: https://raw.githubusercontent.com/funkyheatmap/logo/refs/heads/main/src/funkyheatmap_edited.png
   site-url: https://funkyheatmap.github.io
   repo-url: https://github.com/funkyheatmap/funkyheatmap.github.io
