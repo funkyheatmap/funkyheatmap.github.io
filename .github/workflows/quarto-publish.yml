@@ -41,7 +41,6 @@ jobs:
           branch: gh-pages
           force: false
           clean-exclude: pr-preview/
-          token: ${{ secrets.GTHB_PAT }}
 
       - name: Deploy preview
         if: github.event_name == 'pull_request'
@@ -51,4 +50,3 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
-          token: ${{ secrets.GTHB_PAT }}
