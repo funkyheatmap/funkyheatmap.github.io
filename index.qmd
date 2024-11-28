@@ -1,85 +1,36 @@
 ---
-title: "`{funkyheatmap}`: Visualising data frames with mixed data types"
 bibliography: paper/library.bib
+toc: false
+citation-location: margin
 ---
 
-```{r include=FALSE}
-library(languageserver)
-library(rmarkdown)
-library(lintr)
-library(reticulate)
-```
+![](https://raw.githubusercontent.com/funkyheatmap/logo/refs/heads/main/src/funkyheatmap_edited.png){width=256 fig-align="center"}
 
-`{funkyheatmap}` is a way for creating customisable heatmaps.
+**{funkyheatmap}** allows generating heatmap-like visualisations for data frames. Funky heatmaps can be fine-tuned by providing annotations of the columns and rows, which allows assigning multiple palettes or geometries or grouping rows and columns together in categories.
 
-## Installation
+## Implementations
 
-You can install funkyheatmap like so:
-
-```r
-install.packages("funkyheatmap")
-```
+* JavaScript (incomplete): [Repo](https://github.com/funkyheatmap/funkyheatmapjs), [npm](https://www.npmjs.com/package/funkyheatmapjs)
+* Python: [Repo](https://github.com/funkyheatmap/funkyheatmappy), [PyPI](https://pypi.org/project/funkyheatmappy), [Docs](https://funkyheatmap.github.io/funkyheatmappy)
+* R: [Repo](https://github.com/funkyheatmap/funkyheatmap), [CRAN](https://cran.r-project.org/package=funkyheatmap), [Docs](https://funkyheatmap.github.io/funkyheatmap)
 
 
-## Example
+## Gallery
 
-Let’s use the `mtcars` dataset as an example of what a funky heatmap looks like.
+These are works with funkyheatmap (-inspired) visualisations. Add your work to the list by creating a PR!
 
+::: {layout-ncol=2}
 
-```{r include=FALSE}
-# based on the plot itself
-knitr::opts_chunk$set(fig.width = 7.225, fig.height = 10.8)
-```
+![Wouter Saelens, Robrecht Cannoodt, Helena Todorov, and Yvan Saeys. 2019. “A Comparison of Single-Cell Trajectory Inference Methods.” Nature Biotechnology. doi: [10.1038/s41587-019-0071-9](https://doi.org/10.1038/s41587-019-0071-9).](images/saelens2019.png){width=320px}
 
+![Luecken, Malte D., M. Büttner, K. Chaichoompu, A. Danese, M. Interlandi, M. F. Mueller, D. C. Strobl, et al. 2021. “Benchmarking Atlas-Level Data Integration in Single-Cell Genomics.” Nature Methods. doi: [10.1038/s41592-021-01336-8](https://doi.org/10.1038/s41592-021-01336-8).](images/luecken2021.png){width=320px}
 
-:::{.small}
-```{r heatmap, warning=FALSE, message=FALSE}
-library(funkyheatmap)
-library(dplyr)
-library(tibble)
+![Mereu, Elisabetta, Atefeh Lafzi, Catia Moutinho, Christoph Ziegenhain, Davis J. McCarthy, Adrián Álvarez-Varela, Eduard Batlle, et al. 2020. “Benchmarking Single-Cell RNA-Sequencing Protocols for Cell Atlas Projects.” Nature Biotechnology. doi: [10.1038/s41587-020-0469-4](https://doi.org/10.1038/s41587-020-0469-4).](images/mereu2020.png){width=320px}
 
-data <- mtcars %>%
-  rownames_to_column("id") %>%
-  arrange(desc(mpg))
+![Pratapa, Aditya, Amogh P. Jalihal, Jeffrey N. Law, Aditya Bharadwaj, and T. M. Murali. 2019. “Benchmarking Algorithms for Gene Regulatory Network Inference from Single-Cell Transcriptomic Data.” bioRxiv. doi: [10.1101/642926](https://doi.org/10.1101/642926).](images/pratapa2019.png){width=320px}
 
-column_info <- tribble(
-  ~id,     ~group,         ~name,                      ~geom,        ~palette,    ~options,
-  "id",    "",             "",                         "text",       NA,          list(hjust = 0, width = 6),
-  "mpg",   "overall",      "Miles / gallon",           "bar",        "palette1",  list(width = 4, legend = FALSE),
-  "cyl",   "overall",      "Number of cylinders",      "bar",        "palette2",  list(width = 4, legend = FALSE),
-  "disp",  "group1",       "Displacement (cu.in.)",    "funkyrect",  "palette1",  lst(),
-  "hp",    "group1",       "Gross horsepower",         "funkyrect",  "palette1",  lst(),
-  "drat",  "group1",       "Rear axle ratio",          "funkyrect",  "palette1",  lst(),
-  "wt",    "group1",       "Weight (1000 lbs)",        "funkyrect",  "palette1",  lst(),
-  "qsec",  "group2",       "1/4 mile time",            "circle",     "palette2",  lst(),
-  "vs",    "group2",       "Engine",                   "circle",     "palette2",  lst(),
-  "am",    "group2",       "Transmission",             "circle",     "palette2",  lst(),
-  "gear",  "group2",       "# Forward gears",          "circle",     "palette2",  lst(),
-  "carb",  "group2",       "# Carburetors",            "circle",     "palette2",  lst()
-)
+![Yan, Lulu, and Xiaoqiang Sun. 2022. “Benchmarking and Integration of Methods for Deconvoluting Spatial Transcriptomic Data.” Bioinformatics. doi: [10.1093/bioinformatics/btac805](https://doi.org/10.1093/bioinformatics/btac805).](images/yan2022.png){width=320px}
 
-funky_heatmap(data, column_info = column_info, expand = list(xmax = 4))
-```
+![Sang-aram, Chananchida, Robin Browaeys, Ruth Seurinck, and Yvan Saeys. 2023. “Spotless: A Reproducible Pipeline for Benchmarking Cell Type Deconvolution in Spatial Transcriptomics,” eLife. doi: [10.7554/eLife.88431.3](https://doi.org/10.7554/eLife.88431.3).](images/sangaram2024.png){width=320px}
 
 :::
-
-## More information 
-  
-* The [reference documentation](https://funkyheatmap.github.io/funkyheatmap/reference/index.html)
-  on `funky_heatmap()` details the exact formats of each annotation object that you can pass to it.
-
-* Check out the vignette [`vignette("mtcars", "funkyheatmap")`](https://funkyheatmap.dynverse.org/articles/mtcars.html) for more information on how to customize this visualisation.
-
-* In [`vignette("dynbenchmark", "funkyheatmap")`](https://funkyheatmap.dynverse.org/articles/dynbenchmark.html) we 
-  use funkyheatmap to regenerate the figures from Saelens et al. (2019) [doi:10.1038/s41587-019-0071-9](https://doi.org/10.1038/s41587-019-0071-9).
-
-## Works with funkyheatmap(-like) visualisations
-
-* @comparisonsinglecell_saelens2019
-* @benchmarkingatlaslevel_luecken2020
-* @benchmarkingsinglecell_mereu2020
-* @benchmarkingalgorithmsgene_pratapa2019
-* @benchmarkingintegrationmethods_yan2022
-* @spotlessreproduciblepipeline_sangaram2023
-
-Create a PR to include your work in this list!
