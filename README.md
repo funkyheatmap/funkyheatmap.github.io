@@ -2,13 +2,7 @@
 
 ## Set up
 
-1. Install quarto and R
-
-2. Set up renv (R environment).
-
-  ```bash
-  Rscript -e 'renv::restore()'
-  ```
+Install quarto 
 
 ## Preview
 
