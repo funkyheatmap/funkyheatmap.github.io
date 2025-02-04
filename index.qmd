@@ -9,7 +9,7 @@ citation-location: margin
 
 ## Implementations
 
-* JavaScript (incomplete): [Repo](https://github.com/funkyheatmap/funkyheatmapjs), [npm](https://www.npmjs.com/package/funkyheatmapjs)
+* JavaScript: [Repo](https://github.com/funkyheatmap/funkyheatmapjs), [npm](https://www.npmjs.com/package/funkyheatmapjs), [Docs](https://funkyheatmap.github.io/funkyheatmapjs)
 * Python: [Repo](https://github.com/funkyheatmap/funkyheatmappy), [PyPI](https://pypi.org/project/funkyheatmappy), [Docs](https://funkyheatmap.github.io/funkyheatmappy)
 * R: [Repo](https://github.com/funkyheatmap/funkyheatmap), [CRAN](https://cran.r-project.org/package=funkyheatmap), [Docs](https://funkyheatmap.github.io/funkyheatmap)
 
